@@ -19,7 +19,7 @@ with barcodes and other niceties
 .. raw:: html
     
     <p align="center">
-    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png" width="715">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png" width="715">
     <br /><br />
     </p>
 
@@ -88,7 +88,7 @@ Result:
 .. raw:: html
 
     <p align="center">
-    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_data/screenshot.png" width="500">
+    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
     <br /><br />
     </p>
 
