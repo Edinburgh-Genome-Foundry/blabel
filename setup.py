@@ -17,4 +17,4 @@ setup(
     packages=find_packages(exclude='docs'),
     include_package_data=True,
     install_requires=["jinja2", "qrcode", "pystrich", "python-barcode",
-                      "pillow"])
+                      "pillow", "weasyprint"])
