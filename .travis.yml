@@ -1,0 +1,18 @@
+# sudo: required
+dist: trusty
+language: python
+python:
+  - "3.6"
+
+services:
+  - docker
+
+install:
+  - pip install coveralls pytest-cov pytest
+  - pip install -e .
+
+script:
+  - python -m pytest -v --cov blabel --cov-report term-missing
+  
+after_success:
+  - coveralls

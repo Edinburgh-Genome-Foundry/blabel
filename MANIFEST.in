@@ -1,0 +1,5 @@
+include *.txt
+recursive-include examples *.txt *.py
+recursive-include saboteurs/assets *
+include ez_setup.py
+include *.rst

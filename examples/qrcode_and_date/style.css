@@ -1,0 +1,19 @@
+@page {
+    width: 27mm;
+    height: 7mm;
+    padding: 0.5mm;
+}
+img {
+    height: 6.4mm;
+    display: inline-block;
+    vertical-align: middle;
+    image-rendering: pixelated;
+}
+.label {
+    font-family: Arial, Verdana, Helvetica, sans;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 7px;
+}
+  

@@ -1,0 +1,31 @@
+@page {
+    width: 27mm;
+    height: 7mm;
+}
+.print-area {
+    height: 7mm;
+    width: 100%;
+    text-align: center;
+}
+img {
+    height: 3mm;
+    display: block;
+    position: absolute;
+}
+.logo {
+    top: 3.5mm;
+    left: 1px;
+}
+.datamatrix {
+    image-rendering: pixelated;
+    top: 1px;
+    right: 1px;
+}
+.label {
+    font-family: Arial, Verdana, Helvetica, sans;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 7px;
+}
+  

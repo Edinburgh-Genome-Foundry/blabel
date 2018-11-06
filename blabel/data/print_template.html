@@ -1,0 +1,30 @@
+<body>
+{% for items_chunk in items_chunks %} 
+  <div class='print-area'>
+      {% for item_html in items_chunk %}
+        <div class='item'>
+          {{ item_html }}
+        </div>
+      {% endfor %}
+  </div>
+{% endfor %}
+</body>
+
+<style>
+@page {
+  margin: 0;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+.item {
+  display: inline-block;
+}
+.print-area {
+  page-break-after: always;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+</style>

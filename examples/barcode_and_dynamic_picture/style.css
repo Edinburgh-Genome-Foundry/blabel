@@ -1,0 +1,11 @@
+@page {
+    width: 27mm;
+    height: 6mm;
+}
+img {
+    height: 4mm;
+    margin-left: 1mm;
+    display: inline-block;
+    vertical-align: middle;
+}
+  

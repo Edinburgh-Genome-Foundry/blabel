@@ -1,0 +1,15 @@
+@page {
+    width: 27mm;
+    height: 7mm;
+}
+.print-area, .item {
+    width: 100%;
+}
+p {
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+}
+.low { color: green;}
+.medium { color: orange;}
+.high { color: red;}
