@@ -5,6 +5,9 @@
     <br /><br />
     </p>
 
+.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
+    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
+
 Blabel is a python library to generate labels (typically for printing stickers)
 with barcodes and other niceties
 
