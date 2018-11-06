@@ -10,7 +10,7 @@ setup(
     version=__version__,
     author='Zulko',
     description='Generate multi-page, multi-label pdfs in Python.',
-    long_description=open('README.rst').read(),
+    long_description=open('pypi-readme.rst').read(),
     license='see LICENSE.txt',
     url='https://github.com/Edinburgh-Genome-Foundry/blabel',
     keywords="label barcode pdf generator",
