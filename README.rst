@@ -17,7 +17,7 @@ with barcodes and other niceties
 - Possibility to print several items per sticker.
 
 .. raw:: html
-
+    
     <p align="center">
     <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png" width="715">
     <br /><br />
@@ -94,11 +94,11 @@ Result:
 
 And voila ! See the other examples in this repo to go further:
 
-- [Example with a barcode and a dynamically generated picture](https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture)
-- [Ugly example with a logo and a datamatrix](https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix/README.md)
-- [Example with date and QR code (sources of the example above)](https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date/README.md)
-- [Example where the label data is read from spreadsheets](https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet/README.md)
-- [Example where several items are printed on each page/sticker](https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page)
+- `Example with a barcode and a dynamically generated picture <https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture>`_
+- `Ugly example with a logo and a datamatrix <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix>`_
+- `Example with date and QR code (sources of the example above) <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date>`_
+- `Example where the label data is read from spreadsheets <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet>`_
+- `Example where several items are printed on each page/sticker <https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page>`_
 
 
 
