@@ -1,8 +1,6 @@
 """Utilities for label generation.
 """
-from bs4 import BeautifulSoup
 import base64
-import pandas
 from io import BytesIO
 import datetime
 import textwrap
