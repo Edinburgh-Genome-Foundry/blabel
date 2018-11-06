@@ -23,8 +23,8 @@ with barcodes and other niceties
     <br /><br />
     </p>
 
-Usage
-------
+Example
+--------
 
 To generate labels with Blabel you first need a HTML/Jinja template, and optionally a style sheet, to define how your labels will look like.
 
@@ -66,6 +66,8 @@ Notice the CSS ``@page`` attributes which allows you to adjust the page format t
         font-size: 7px;
     }
 
+**Python code**
+
 In your Python script, create a ``LabelWriter`` linked to the two files above,
 and feed it a list of of dicts ("records"), one for each label to print :
 
@@ -83,7 +85,7 @@ and feed it a list of of dicts ("records"), one for each label to print :
 
     label_writer.write_labels(records, target='qrcode_and_label.pdf')
 
-Result:
+And voila !
 
 .. raw:: html
 
@@ -92,7 +94,8 @@ Result:
     <br /><br />
     </p>
 
-And voila ! See the other examples in this repo to go further:
+Other examples
+--------------
 
 - `Example with a barcode and a dynamically generated picture <https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture>`_
 - `Ugly example with a logo and a datamatrix <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix>`_
