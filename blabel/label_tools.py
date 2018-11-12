@@ -11,63 +11,40 @@ from pystrich.datamatrix import DataMatrixEncoder
 from PIL import Image, ImageOps
 
 def now(fmt="%Y-%m-%d %H:%M"):
+    """Display the current time.
+
+    Default format is  "year-month-day hour:minute" but another format can be
+    provided (see ``datetime`` docs for date formatting)
+    """
     now = datetime.datetime.now()
     if fmt is not None:
         now = now.strftime(fmt)
     return now
 
 def pil_to_html_imgdata(img, fmt='PNG'):
+    """Convert a PIL image into HTML-displayable data.
+    
+    The result is a string ``data:image/FMT;base64,xxxxxxxxx`` which you
+    can provide as a "src" parameter to a ``<img/>`` tag.
+
+    Examples:
+    ---------
+
+    >>> data = pil_to_html_imgdata(my_pil_img)
+    >>> html_data = '<img src="%s"/>' % data
+    """
     buffered = BytesIO()
     img.save(buffered, format=fmt)
     img_str = base64.b64encode(buffered.getvalue())
     prefix = 'data:image/%s;charset=utf-8;base64,' % fmt.lower()
     return  prefix + img_str.decode()
 
-def figure_data(fig, size=None, fmt='png', bbox_inches='tight', **kwargs):
-    """Return a HTML-embeddable string of the figure data.
-    The string can be embedded in an image tag as ``<img src="{DATA}"/>``.
-    Parameters
-    ----------
-    fig
-      A Matplotlib figure. A Matplotlib "ax" can also be provided, at which
-      case the whole ``ax.figure`` will be displayed (i.e. all axes in the
-      same figure).
-    size
-      Size or resolution (width, height) of the final figure image, in inches.
-    fmt
-      Image format, for instance "png", "svg", "jpeg". SVG is vectorial (non
-      pixelated) but sometimes more difficult to work with inside HTML/PDF
-      documents.
-    bbox_inches
-      Keeping this option to "tight" will ensure that your plot's delimitation
-      is optimal.
-    **kwargs
-      Any other option of Matplotlib's figure.savefig() method.
-    """
-    if "AxesSubplot" in str(fig.__class__):
-        # A matplotlib axis was provided: take its containing figure.
-        fig = fig.figure
-    output = BytesIO()
-    original_size = fig.get_size_inches()
-    if size is not None:
-        fig.set_size_inches((int(size[0]), int(size[1])))
-    fig.savefig(output, format=fmt, bbox_inches=bbox_inches, **kwargs)
-    fig.set_size_inches(original_size)
-    data = output.getvalue()
-    if fmt == "svg":
-        svg_txt = data.decode()
-        svg_txt = "\n".join(svg_txt.split("\n")[4:])
-        svg_txt = "".join(svg_txt.split("\n"))
-        content = base64.b64encode(svg_txt.encode("ascii"))
-    else:
-        content = base64.b64encode(data)
-    result = b"data:image/%s+xml;base64,%s" % (fmt.encode('utf-8'), content)
-    return result.decode("utf-8")
-
 def wrap(text, col_width):
+    """Breaks the text into lines with at maximum 'col_width' characters."""
     return "\n".join(textwrap.wrap(text, col_width))
 
 def hiro_square(width='100%'):
+    """Return a <svg/> string of a Hiro square to be included in HTML."""
     svg= """
       <svg height="%s" width="%s" version="1.1" viewBox="0 0 4 4"
         xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +57,38 @@ def hiro_square(width='100%'):
 
 def qr_code(data, optimize=20, fill_color="black", back_color="white",
             **qr_code_params):
+    """Return a QR code's image data.
+
+    Powered by the Python library ``qrcode``. See this library's documentation
+    for more details.
+
+    Parameters
+    ----------
+    data
+      Data to be encoded in the QR code
+    
+    optimize
+      Chunk length optimization setting
+    
+    fill_color, back_color
+      Colors to use for QRcode and its background.
+    
+    **qr_code_params
+      Parameters of the ``qrcode.QRCode`` constructor, such as ``version``,
+      ``error_correction``, ``box_size``, ``border``.
+
+    Returns
+    -------
+    image_base64_data
+      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
+      "src" parameter to a ``<img/>`` tag.
+
+    Examples:
+    ---------
+
+    >>> data = qr_code('egf45728')
+    >>> html_data = '<img src="%s"/>' % data
+    """
     params = dict(box_size=5, border=0)
     params.update(qr_code_params)
     qr = qrcode.QRCode(**params)
@@ -89,6 +98,34 @@ def qr_code(data, optimize=20, fill_color="black", back_color="white",
 
 
 def datamatrix(data, cellsize=2, with_border=False):
+    """Return a datamatrix's image data.
+
+    Powered by the Python library ``qrcode``. See this library's documentation
+    for more details.
+
+    Parameters
+    ----------
+    data
+      Data to be encoded in the datamatrix
+
+    cellsize
+      size of the picture in inches (?)
+    
+    with_border
+      If false, there will be no border or margin to the datamatrix image.
+
+    Returns
+    -------
+    image_base64_data
+      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
+      "src" parameter to a ``<img/>`` tag.
+
+    Examples:
+    ---------
+
+    >>> data = datamatrix('EGF')
+    >>> html_data = '<img src="%s"/>' % data
+    """
     encoder = DataMatrixEncoder(data)
     img_data = encoder.get_imagedata(cellsize=cellsize)
     img = Image.open(BytesIO(img_data))
@@ -97,6 +134,36 @@ def datamatrix(data, cellsize=2, with_border=False):
     return pil_to_html_imgdata(img)
 
 def barcode(data, barcode_class='code128', **writer_options):
+    """Return a barcode's image data.
+
+    Powered by the Python library ``python-barcode``. See this library's
+    documentation for more details.
+
+    Parameters
+    ----------
+    data
+      Data to be encoded in the datamatrix
+
+    barcode_class
+      Class/standard to use to encode the data. Different standards have
+      different constraints.
+    
+    writer_options
+      Various options for the writer to tune the appearance of the barcode
+      (see python-barcode documentation)
+
+    Returns
+    -------
+    image_base64_data
+      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
+      "src" parameter to a ``<img/>`` tag.
+
+    Examples:
+    ---------
+
+    >>> data = barcode('EGF12134', barcode_class='code128')
+    >>> html_data = '<img src="%s"/>' % data
+    """
     constructor = get_barcode_class(barcode_class)
     data = str(data).zfill(constructor.digits)
     barcode_img = constructor(data)

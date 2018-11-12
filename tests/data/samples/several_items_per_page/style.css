@@ -1,0 +1,18 @@
+@page {
+    width: 27mm;
+    height: 7mm;
+}
+.head {
+    height: 3mm;
+    margin: 0;
+}
+.name {
+    margin: 0;
+    font-family: Arial, Verdana, Helvetica, sans;
+    font-weight: bold;
+    font-size: 5px;
+}
+.item {
+  width: 30%;
+  text-align: center;
+}

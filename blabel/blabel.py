@@ -49,11 +49,27 @@ def write_pdf(html, target=None, base_url=None, extra_stylesheets=()):
 
 class LabelWriter:
     """Class to write labels
+
+    Parameters
+    ----------
+
+    item_template_path
+    
+    item_template
+    
+    default_stylesheets
+
+    default_base_url
+    
+    items_per_page
+                 
+    **default_context
+      Use keywords to add ny variable, function, etc. that you are using in
+      the templates.
     """
 
     def __init__(self, item_template_path=None, item_template=None,
-                 default_stylesheets=(),
-                 use_default_styling=True, default_base_url=None,
+                 default_stylesheets=(), default_base_url=None,
                  items_per_page=1, **default_context):
         if item_template_path is not None:
             with open(item_template_path, 'r') as f:
@@ -62,7 +78,6 @@ class LabelWriter:
             item_template = jinja2.Template(item_template)
         self.default_context = default_context if default_context else {}
         self.default_stylesheets = default_stylesheets
-        self.use_default_styling = use_default_styling
         self.default_base_url = default_base_url
         self.item_template = item_template
         self.items_per_page = items_per_page
@@ -83,8 +98,6 @@ class LabelWriter:
                 f.write(html)
         else:
             return html
-
-
 
     def write_labels(self, records, target=None, extra_stylesheets=(),
                      base_url=None):
