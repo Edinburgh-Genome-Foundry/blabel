@@ -8,13 +8,17 @@
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
     :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
 
+.. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
+:target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
+
+
 Blabel is a python library to generate labels (typically for printing stickers)
-with barcodes and other niceties
+with barcodes and other niceties.
 
 **Some features:**
 
-- Generates PDF files where each page is a label (compatible with most label printers).
-- Label layout defined by HTML (Jinja) templates and CSS. Supports any paper/margin format !
+- Generates PDF files where each page is a label (that's the way most label printers want it).
+- Label layout is defined by HTML (Jinja) templates and CSS. Supports any page dimensions and margins.
 - Builtin support for various barcodes, QR-codes, datamatrix, and more (wraps other libraries).
 - Labels data can be provided as list of dicts (easy to generate from spreadsheets).
 - Possibility to print several items per sticker.

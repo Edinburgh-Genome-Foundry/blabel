@@ -11,6 +11,9 @@ Blabel
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
     :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
 
+.. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
+:target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
+
 Blabel is a python library to generate labels (typically for printing stickers)
 with barcodes and other niceties
 
