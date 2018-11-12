@@ -140,13 +140,13 @@ synthetic biology software suite for DNA design, manufacturing and validation.
 
     self
 
+
 .. toctree::
    :hidden:
    :caption: Reference
    :maxdepth: 3
 
    ref
-
 
 .. raw:: html
 
