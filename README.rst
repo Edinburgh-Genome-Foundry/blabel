@@ -5,6 +5,10 @@
     <br /><br />
     </p>
 
+
+Blabel
+======
+
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
     :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
 
