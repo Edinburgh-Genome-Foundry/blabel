@@ -29,7 +29,7 @@ def test_qrcode_and_date(tmpdir):
     target = os.path.join(str(tmpdir), 'target.html')
     label_writer.records_to_html(records, target=target)
     data = label_writer.write_labels(records, target=None)
-    assert 30_000 > len(data) > 29_000
+    assert 30_000 > len(data) > 27_000
     
 
 
