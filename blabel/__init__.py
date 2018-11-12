@@ -1,4 +1,4 @@
-""" icebreaker/__init__.py """
+""" blabel/__init__.py """
 
 # __all__ = []
 

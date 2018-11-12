@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = icebreaker
+SPHINXPROJ    = blabel
 SOURCEDIR     = .
 BUILDDIR      = _build
 
