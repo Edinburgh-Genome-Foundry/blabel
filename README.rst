@@ -1,20 +1,17 @@
-.. raw:: html
-
-    <p align="center">
-    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
-    <br /><br />
-    </p>
-
-
 Blabel
 ======
-
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
     :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
 
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
     :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
 
+.. raw:: html
+
+    <p align="center">
+    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+    <br /><br />
+    </p>
 
 Blabel is a python library to generate labels (typically for printing stickers)
 with barcodes and other niceties.
@@ -39,6 +36,10 @@ Example
 
 To generate labels with Blabel you first need a HTML/Jinja template, and optionally a style sheet, to define how your labels will look like.
 
+.. raw:: html
+
+    <br/><br/>
+
 **HTML item template** (``item_template.html``)
 
 Notice the use of ``label_tools`` (Blabel's builtin features). The variables ``sample_name`` and ``sample_id`` will be defined at label creation time.
@@ -51,6 +52,10 @@ Notice the use of ``label_tools`` (Blabel's builtin features). The variables ``s
         Made with ❤ @ EGF <br/>
         🗓 {{ label_tools.now() }}
     </span>
+
+.. raw:: html
+
+    <br/><br/>
 
 **CSS stylesheet** (``style.css``)
 
@@ -77,6 +82,10 @@ Notice the CSS ``@page`` attributes which allows you to adjust the page format t
         font-size: 7px;
     }
 
+.. raw:: html
+
+    <br/><br/>
+
 **Python code**
 
 In your Python script, create a ``LabelWriter`` linked to the two files above,
@@ -96,7 +105,11 @@ and feed it a list of of dicts ("records"), one for each label to print :
 
     label_writer.write_labels(records, target='qrcode_and_label.pdf')
 
-And voila !
+.. raw:: html
+
+    <br/><br/>
+
+**Result:**
 
 .. raw:: html
 
