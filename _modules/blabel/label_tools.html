@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>blabel.label_tools &mdash; blabel 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="blabel 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> blabel
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Blabel</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ref.html">Blabel Reference manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">blabel</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>blabel.label_tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for blabel.label_tools</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Utilities for label generation.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">BytesIO</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">import</span> <span class="nn">qrcode</span>
+<span class="kn">from</span> <span class="nn">barcode</span> <span class="k">import</span> <span class="n">get_barcode_class</span>
+<span class="kn">from</span> <span class="nn">pystrich.datamatrix</span> <span class="k">import</span> <span class="n">DataMatrixEncoder</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageOps</span>
+
+<div class="viewcode-block" id="now"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.now">[docs]</a><span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Display the current time.</span>
+
+<span class="sd">    Default format is  &quot;year-month-day hour:minute&quot; but another format can be</span>
+<span class="sd">    provided (see ``datetime`` docs for date formatting)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">now</span></div>
+
+<div class="viewcode-block" id="pil_to_html_imgdata"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.pil_to_html_imgdata">[docs]</a><span class="k">def</span> <span class="nf">pil_to_html_imgdata</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;PNG&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a PIL image into HTML-displayable data.</span>
+<span class="sd">    </span>
+<span class="sd">    The result is a string ``data:image/FMT;base64,xxxxxxxxx`` which you</span>
+<span class="sd">    can provide as a &quot;src&quot; parameter to a ``&lt;img/&gt;`` tag.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">    ---------</span>
+
+<span class="sd">    &gt;&gt;&gt; data = pil_to_html_imgdata(my_pil_img)</span>
+<span class="sd">    &gt;&gt;&gt; html_data = &#39;&lt;img src=&quot;%s&quot;/&gt;&#39; % data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">buffered</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">buffered</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fmt</span><span class="p">)</span>
+    <span class="n">img_str</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">buffered</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;data:image/</span><span class="si">%s</span><span class="s1">;charset=utf-8;base64,&#39;</span> <span class="o">%</span> <span class="n">fmt</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">return</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="n">img_str</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="wrap"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.wrap">[docs]</a><span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">col_width</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Breaks the text into lines with at maximum &#39;col_width&#39; characters.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">col_width</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="hiro_square"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.hiro_square">[docs]</a><span class="k">def</span> <span class="nf">hiro_square</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a &lt;svg/&gt; string of a Hiro square to be included in HTML.&quot;&quot;&quot;</span>
+    <span class="n">svg</span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">      &lt;svg height=&quot;</span><span class="si">%s</span><span class="s2">&quot; width=&quot;</span><span class="si">%s</span><span class="s2">&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 4 4&quot;</span>
+<span class="s2">        xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</span>
+<span class="s2">        &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;4&quot; height=&quot;4&quot; fill=&quot;#000&quot; stroke-width=&quot;0&quot;/&gt;</span>
+<span class="s2">        &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;2&quot; height=&quot;2&quot; fill=&quot;#fff&quot; stroke-width=&quot;0&quot;/&gt;</span>
+<span class="s2">      &lt;/svg&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;data:image/svg+xml;charset=utf-8;base64,&quot;</span>
+    <span class="k">return</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">svg</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="qr_code"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.qr_code">[docs]</a><span class="k">def</span> <span class="nf">qr_code</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">back_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">qr_code_params</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a QR code&#39;s image data.</span>
+
+<span class="sd">    Powered by the Python library ``qrcode``. See this library&#39;s documentation</span>
+<span class="sd">    for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data</span>
+<span class="sd">      Data to be encoded in the QR code</span>
+<span class="sd">    </span>
+<span class="sd">    optimize</span>
+<span class="sd">      Chunk length optimization setting</span>
+<span class="sd">    </span>
+<span class="sd">    fill_color, back_color</span>
+<span class="sd">      Colors to use for QRcode and its background.</span>
+<span class="sd">    </span>
+<span class="sd">    **qr_code_params</span>
+<span class="sd">      Parameters of the ``qrcode.QRCode`` constructor, such as ``version``,</span>
+<span class="sd">      ``error_correction``, ``box_size``, ``border``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_base64_data</span>
+<span class="sd">      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a</span>
+<span class="sd">      &quot;src&quot; parameter to a ``&lt;img/&gt;`` tag.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">    ---------</span>
+
+<span class="sd">    &gt;&gt;&gt; data = qr_code(&#39;egf45728&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; html_data = &#39;&lt;img src=&quot;%s&quot;/&gt;&#39; % data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">box_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">qr_code_params</span><span class="p">)</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">qrcode</span><span class="o">.</span><span class="n">QRCode</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">qr</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">qri</span> <span class="o">=</span> <span class="n">qr</span><span class="o">.</span><span class="n">make_image</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span> <span class="n">back_color</span><span class="o">=</span><span class="n">back_color</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pil_to_html_imgdata</span><span class="p">(</span><span class="n">qri</span><span class="o">.</span><span class="n">get_image</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="datamatrix"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.datamatrix">[docs]</a><span class="k">def</span> <span class="nf">datamatrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cellsize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">with_border</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a datamatrix&#39;s image data.</span>
+
+<span class="sd">    Powered by the Python library ``qrcode``. See this library&#39;s documentation</span>
+<span class="sd">    for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data</span>
+<span class="sd">      Data to be encoded in the datamatrix</span>
+
+<span class="sd">    cellsize</span>
+<span class="sd">      size of the picture in inches (?)</span>
+<span class="sd">    </span>
+<span class="sd">    with_border</span>
+<span class="sd">      If false, there will be no border or margin to the datamatrix image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_base64_data</span>
+<span class="sd">      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a</span>
+<span class="sd">      &quot;src&quot; parameter to a ``&lt;img/&gt;`` tag.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">    ---------</span>
+
+<span class="sd">    &gt;&gt;&gt; data = datamatrix(&#39;EGF&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; html_data = &#39;&lt;img src=&quot;%s&quot;/&gt;&#39; % data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">DataMatrixEncoder</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">img_data</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">get_imagedata</span><span class="p">(</span><span class="n">cellsize</span><span class="o">=</span><span class="n">cellsize</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">img_data</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">with_border</span><span class="p">:</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">ImageOps</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">getbbox</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">pil_to_html_imgdata</span><span class="p">(</span><span class="n">img</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="barcode"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.barcode">[docs]</a><span class="k">def</span> <span class="nf">barcode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">barcode_class</span><span class="o">=</span><span class="s1">&#39;code128&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">writer_options</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a barcode&#39;s image data.</span>
+
+<span class="sd">    Powered by the Python library ``python-barcode``. See this library&#39;s</span>
+<span class="sd">    documentation for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data</span>
+<span class="sd">      Data to be encoded in the datamatrix</span>
+
+<span class="sd">    barcode_class</span>
+<span class="sd">      Class/standard to use to encode the data. Different standards have</span>
+<span class="sd">      different constraints.</span>
+<span class="sd">    </span>
+<span class="sd">    writer_options</span>
+<span class="sd">      Various options for the writer to tune the appearance of the barcode</span>
+<span class="sd">      (see python-barcode documentation)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_base64_data</span>
+<span class="sd">      A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a</span>
+<span class="sd">      &quot;src&quot; parameter to a ``&lt;img/&gt;`` tag.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">    ---------</span>
+
+<span class="sd">    &gt;&gt;&gt; data = barcode(&#39;EGF12134&#39;, barcode_class=&#39;code128&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; html_data = &#39;&lt;img src=&quot;%s&quot;/&gt;&#39; % data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">constructor</span> <span class="o">=</span> <span class="n">get_barcode_class</span><span class="p">(</span><span class="n">barcode_class</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">constructor</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+    <span class="n">barcode_img</span> <span class="o">=</span> <span class="n">constructor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">svg</span> <span class="o">=</span> <span class="n">barcode_img</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">writer_options</span><span class="o">=</span><span class="n">writer_options</span><span class="p">)</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;data:image/svg+xml;charset=utf-8;base64,&quot;</span>
+    <span class="k">return</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">svg</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Zulko.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Blabel &mdash; blabel 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="blabel 0.1.0 documentation" href="#"/>
+        <link rel="next" title="Blabel Reference manual" href="ref.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> blabel
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blabel</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ref.html">Blabel Reference manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">blabel</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Blabel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p align="center">
+<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+<br /><br />
+</p><div class="section" id="blabel">
+<h1>Blabel<a class="headerlink" href="#blabel" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel"><img alt="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" src="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" /></a>
+<p>Blabel is a python library to generate labels (typically for printing stickers)
+with barcodes and other niceties</p>
+<p><strong>Some features:</strong></p>
+<ul class="simple">
+<li>Generates PDF files where each page is a label (compatible with most label printers).</li>
+<li>Label layout defined by HTML (Jinja) templates and CSS. Supports any paper/margin format !</li>
+<li>Builtin support for various barcodes, QR-codes, datamatrix, and more (wraps other libraries).</li>
+<li>Labels data can be provided as list of dicts (easy to generate from spreadsheets).</li>
+<li>Possibility to print several items per sticker.</li>
+</ul>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png" width="715">
+<br /><br />
+</p><div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>To generate labels with Blabel you first need a HTML/Jinja template, and optionally a style sheet, to define how your labels will look like.</p>
+<p><strong>HTML item template</strong> (<code class="docutils literal"><span class="pre">item_template.html</span></code>)</p>
+<p>Notice the use of <code class="docutils literal"><span class="pre">label_tools</span></code> (Blabel’s builtin features). The variables <code class="docutils literal"><span class="pre">sample_name</span></code> and <code class="docutils literal"><span class="pre">sample_id</span></code> will be defined at label creation time.</p>
+<div class="code html highlight-default"><div class="highlight"><pre><span></span>&lt;img src=&quot;{{label_tools.qr_code(sample_id)}}&quot;/&gt;
+&lt;span class=&#39;label&#39;&gt;
+    {{ sample_name }} &lt;br/&gt;
+    Made with ❤ @ EGF &lt;br/&gt;
+    🗓 {{ label_tools.now() }}
+&lt;/span&gt;
+</pre></div>
+</div>
+<p><strong>CSS stylesheet</strong> (<code class="docutils literal"><span class="pre">style.css</span></code>)</p>
+<p>Notice the CSS <code class="docutils literal"><span class="pre">&#64;page</span></code> attributes which allows you to adjust the page format to the dimensions of your sticker.</p>
+<div class="code css highlight-default"><div class="highlight"><pre><span></span><span class="nd">@page</span> <span class="p">{</span>
+    <span class="n">width</span><span class="p">:</span> <span class="mi">27</span><span class="n">mm</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">7</span><span class="n">mm</span><span class="p">;</span>
+    <span class="n">padding</span><span class="p">:</span> <span class="mf">0.5</span><span class="n">mm</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">img</span> <span class="p">{</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mf">6.4</span><span class="n">mm</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+    <span class="n">vertical</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span><span class="p">;</span>
+    <span class="n">image</span><span class="o">-</span><span class="n">rendering</span><span class="p">:</span> <span class="n">pixelated</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">label</span> <span class="p">{</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">Verdana</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="n">bold</span><span class="p">;</span>
+    <span class="n">vertical</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">7</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Python code</strong></p>
+<p>In your Python script, create a <code class="docutils literal"><span class="pre">LabelWriter</span></code> linked to the two files above,
+and feed it a list of of dicts (“records”), one for each label to print :</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">blabel</span> <span class="k">import</span> <span class="n">LabelWriter</span>
+
+<span class="n">label_writer</span> <span class="o">=</span> <span class="n">LabelWriter</span><span class="p">(</span><span class="s2">&quot;item_template.html&quot;</span><span class="p">,</span>
+                           <span class="n">default_stylesheets</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;style.css&quot;</span><span class="p">,))</span>
+<span class="n">records</span><span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">sample_id</span><span class="o">=</span><span class="s2">&quot;s01&quot;</span><span class="p">,</span> <span class="n">sample_name</span><span class="o">=</span><span class="s2">&quot;Sample 1&quot;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">sample_id</span><span class="o">=</span><span class="s2">&quot;s02&quot;</span><span class="p">,</span> <span class="n">sample_name</span><span class="o">=</span><span class="s2">&quot;Sample 2&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">label_writer</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;qrcode_and_label.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And voila !</p>
+<p align="center">
+<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
+<br /><br />
+</p></div>
+<div class="section" id="other-examples">
+<h2>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture">Example with a barcode and a dynamically generated picture</a></li>
+<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix">Ugly example with a logo and a datamatrix</a></li>
+<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date">Example with date and QR code (sources of the example above)</a></li>
+<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet">Example where the label data is read from spreadsheets</a></li>
+<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page">Example where several items are printed on each page/sticker</a></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>In progress. See examples and source code in the mean time.</p>
+</div>
+<div class="section" id="license-mit">
+<h2>License = MIT<a class="headerlink" href="#license-mit" title="Permalink to this headline">¶</a></h2>
+<p>DnaChisel is an open-source software originally written at the <a class="reference external" href="https://edinburgh-genome-foundry.github.io/home.html">Edinburgh Genome Foundry</a> by <a class="reference external" href="https://github.com/Zulko">Zulko</a>
+and <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel">released on Github</a> under the MIT licence (¢ Edinburg Genome Foundry). Everyone is welcome to contribute !</p>
+</div>
+<div class="section" id="more-biology-software">
+<h2>More biology software<a class="headerlink" href="#more-biology-software" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://edinburgh-genome-foundry.github.io/"><img alt="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Edinburgh-Genome-Foundry.github.io/master/static/imgs/logos/egf-codon-horizontal.png" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Edinburgh-Genome-Foundry.github.io/master/static/imgs/logos/egf-codon-horizontal.png" /></a>
+<p>Blabel was originally written to print labels for biological samples and is part of the <a class="reference external" href="https://edinburgh-genome-foundry.github.io/">EGF Codons</a>
+synthetic biology software suite for DNA design, manufacturing and validation.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<a href="https://twitter.com/share" class="twitter-share-button"
+data-text="Blabel - Python library to create labels/stickers from HTML templates" data-size="large" data-hashtags="Python PDF">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<iframe src="http://ghbtns.com/github-btn.html?user=Edinburgh-Genome-Foundry&repo=blabel&type=watch&count=true&size=large"
+allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30px" margin-bottom="30px"></iframe><a href="https://github.com/Edinburgh-Genome-Foundry/blabel" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ref.html" class="btn btn-neutral float-right" title="Blabel Reference manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Zulko.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
