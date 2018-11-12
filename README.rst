@@ -13,13 +13,6 @@ Blabel
     <br /><br />
     </p>
 
-
-
-
-.. raw:: html
-
-    <br/><br/>
-
 Blabel is a python library to generate labels (typically for printing stickers)
 with barcodes and other niceties.
 
