@@ -51,7 +51,7 @@ def test_barcode_and_dynamic_picture():
     ]
 
     data = label_writer.write_labels(records, target=None)
-    assert 14_100 > len(data) > 14_000
+    assert 15_000 > len(data) > 10_000
 
 def test_labels_from_spreadsheet():
     dataframe = pandas.read_csv(os.path.join(
@@ -61,7 +61,7 @@ def test_labels_from_spreadsheet():
     template, style = get_template_and_style('labels_from_spreadsheet')
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
     data = label_writer.write_labels(records, target=None)
-    assert 16_000 > len(data) > 15_000
+    assert 16_000 > len(data) > 11_000
 
 def test_logo_and_datamatrix():
     records= [
@@ -74,7 +74,7 @@ def test_logo_and_datamatrix():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'logo_and_datamatrix')
     )
-    assert 26_000 > len(data) > 25_000
+    assert 26_000 > len(data) > 20_000
 
 def test_several_items_per_page():
     records= [
@@ -90,4 +90,4 @@ def test_several_items_per_page():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'several_items_per_page')
     )
-    assert 26_000 > len(data) > 25_000
+    assert 26_000 > len(data) > 20_000
