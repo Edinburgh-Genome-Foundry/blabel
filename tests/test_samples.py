@@ -61,7 +61,7 @@ def test_labels_from_spreadsheet():
     template, style = get_template_and_style('labels_from_spreadsheet')
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
     data = label_writer.write_labels(records, target=None)
-    assert 16_000 > len(data) > 11_000
+    assert 18_000 > len(data) > 11_000
 
 def test_logo_and_datamatrix():
     records= [
