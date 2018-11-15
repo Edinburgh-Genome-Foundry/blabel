@@ -7,4 +7,4 @@ records= [
     dict(sample_id="s02", sample_name="Sample 2")
 ]
 
-label_writer.write_labels(records, target='qrcode_and_label.pdf')
+label_writer.write_labels(records, target='qrcode_and_date.pdf')

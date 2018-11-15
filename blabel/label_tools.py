@@ -6,7 +6,7 @@ import datetime
 import textwrap
 
 import qrcode
-from barcode import get_barcode_class
+import barcode as python_barcode
 from pystrich.datamatrix import DataMatrixEncoder
 from PIL import Image, ImageOps
 
@@ -133,7 +133,7 @@ def datamatrix(data, cellsize=2, with_border=False):
         img = img.crop(ImageOps.invert(img).getbbox())
     return pil_to_html_imgdata(img)
 
-def barcode(data, barcode_class='code128', **writer_options):
+def barcode(data, barcode_class='code128', fmt='png', **writer_options):
     """Return a barcode's image data.
 
     Powered by the Python library ``python-barcode``. See this library's
@@ -163,10 +163,30 @@ def barcode(data, barcode_class='code128', **writer_options):
 
     >>> data = barcode('EGF12134', barcode_class='code128')
     >>> html_data = '<img src="%s"/>' % data
+
+    Examples of writer options:
+
+    >>> { 'background': 'white',
+    >>>   'font_size': 10,
+    >>>   'foreground': 'black',
+    >>>   'module_height': 15.0,
+    >>>   'module_width': 0.2,
+    >>>   'quiet_zone': 6.5,
+    >>>   'text': '',
+    >>>   'text_distance': 5.0,
+    >>>   'write_text': True
+    >>> }
     """
-    constructor = get_barcode_class(barcode_class)
+    constructor = python_barcode.get_barcode_class(barcode_class)
     data = str(data).zfill(constructor.digits)
-    barcode_img = constructor(data)
-    svg = barcode_img.render(writer_options=writer_options)
-    prefix = "data:image/svg+xml;charset=utf-8;base64,"
-    return prefix + base64.b64encode(svg).decode()
+    writer = {
+      'svg': python_barcode.writer.ImageWriter,
+      'png':python_barcode.writer.ImageWriter
+    }[fmt]
+    barcode_img = constructor(data, writer=writer())
+    img = barcode_img.render(writer_options=writer_options)
+    if fmt == 'png':
+      return pil_to_html_imgdata(img, fmt='PNG')
+    else:
+        prefix = "data:image/svg+xml;charset=utf-8;base64,"
+        return prefix + base64.b64encode(img).decode()

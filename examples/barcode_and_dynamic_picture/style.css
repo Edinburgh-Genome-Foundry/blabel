@@ -7,5 +7,6 @@ img {
     margin-left: 1mm;
     display: inline-block;
     vertical-align: middle;
+    image-rendering: pixelated;
 }
   

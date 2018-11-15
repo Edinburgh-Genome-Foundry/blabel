@@ -29,7 +29,7 @@ def test_qrcode_and_date(tmpdir):
     target = os.path.join(str(tmpdir), 'target.html')
     label_writer.records_to_html(records, target=target)
     data = label_writer.write_labels(records, target=None)
-    assert 30_000 > len(data) > 27_000
+    assert 32_000 > len(data) > 27_000
     
 
 
@@ -51,7 +51,7 @@ def test_barcode_and_dynamic_picture():
     ]
 
     data = label_writer.write_labels(records, target=None)
-    assert 15_000 > len(data) > 10_000
+    assert 40_000 > len(data) > 30_000
 
 def test_labels_from_spreadsheet():
     dataframe = pandas.read_csv(os.path.join(
@@ -74,7 +74,7 @@ def test_logo_and_datamatrix():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'logo_and_datamatrix')
     )
-    assert 26_000 > len(data) > 20_000
+    assert 27_000 > len(data) > 20_000
 
 def test_several_items_per_page():
     records= [
@@ -90,4 +90,4 @@ def test_several_items_per_page():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'several_items_per_page')
     )
-    assert 26_000 > len(data) > 20_000
+    assert 28_000 > len(data) > 20_000
