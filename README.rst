@@ -60,6 +60,8 @@ Notice the use of ``label_tools`` (Blabel's builtin features). The variables ``s
 **CSS stylesheet** (``style.css``)
 
 Notice the CSS ``@page`` attributes which allows you to adjust the page format to the dimensions of your sticker.
+Also notice the ``pixelated`` image rendering. If your printer is black/white only with no greyscale support,
+this option will ensure crisp-looking barcodes, qr codes, etc.
 
 .. code:: css
 
