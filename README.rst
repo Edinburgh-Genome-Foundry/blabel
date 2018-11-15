@@ -34,7 +34,8 @@ with barcodes and other niceties.
 Example
 --------
 
-To generate labels with Blabel you first need a HTML/Jinja template, and optionally a style sheet, to define how your labels will look like.
+To generate labels with Blabel you first need a HTML/Jinja template, and
+optionally a style sheet, to define how your labels will look like.
 
 .. raw:: html
 
@@ -42,7 +43,8 @@ To generate labels with Blabel you first need a HTML/Jinja template, and optiona
 
 **HTML item template** (``item_template.html``)
 
-Notice the use of ``label_tools`` (Blabel's builtin features). The variables ``sample_name`` and ``sample_id`` will be defined at label creation time.
+Notice the use of ``label_tools`` (Blabel's builtin features). The variables
+``sample_name`` and ``sample_id`` will be defined at label creation time.
 
 .. code:: html
 
@@ -59,9 +61,11 @@ Notice the use of ``label_tools`` (Blabel's builtin features). The variables ``s
 
 **CSS stylesheet** (``style.css``)
 
-Notice the CSS ``@page`` attributes which allows you to adjust the page format to the dimensions of your sticker.
-Also notice the ``pixelated`` image rendering. If your printer is black/white only with no greyscale support,
-this option will ensure crisp-looking barcodes, qr codes, etc.
+Notice the CSS ``@page`` attributes which allows you to adjust the page format
+to the dimensions of your sticker.
+Also notice the ``pixelated`` image rendering. If your printer is black/white
+only with no greyscale support, this option will ensure crisp-looking barcodes,
+qr codes, etc.
 
 .. code:: css
 
