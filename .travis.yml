@@ -8,7 +8,7 @@ services:
   - docker
 
 install:
-  - pip install coveralls pytest-cov pytest pydenticon pandas
+  - pip install coveralls pytest-cov==2.6 pytest pydenticon pandas
   - pip install -e .
 
 script:
