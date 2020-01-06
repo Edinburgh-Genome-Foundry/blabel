@@ -160,65 +160,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p align="center">
-<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
-<br /><br />
-</p><div class="section" id="blabel">
+  <div class="section" id="blabel">
 <h1>Blabel<a class="headerlink" href="#blabel" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel"><img alt="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" src="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" /></a>
 <a class="reference external image-reference" href="https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master"><img alt="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master" /></a>
-<p>Blabel is a python library to generate labels (typically for printing stickers)
-with barcodes and other niceties</p>
+<p align="center">
+<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+<br /><br />
+</p><p>Blabel is a python library to generate labels (typically for printing stickers)
+with barcodes and other niceties.</p>
 <p><strong>Some features:</strong></p>
 <ul class="simple">
-<li>Generates PDF files where each page is a label (compatible with most label printers).</li>
-<li>Label layout defined by HTML (Jinja) templates and CSS. Supports any paper/margin format !</li>
-<li>Builtin support for various barcodes, QR-codes, datamatrix, and more (wraps other libraries).</li>
-<li>Labels data can be provided as list of dicts (easy to generate from spreadsheets).</li>
-<li>Possibility to print several items per sticker.</li>
+<li><p>Generates PDF files where each page is a label (that’s the way most label printers want it).</p></li>
+<li><p>Label layout is defined by HTML (Jinja) templates and CSS. Supports any page dimensions and margins.</p></li>
+<li><p>Builtin support for various barcodes, QR-codes, datamatrix, and more (wraps other libraries).</p></li>
+<li><p>Labels data can be provided as list of dicts (easy to generate from spreadsheets).</p></li>
+<li><p>Possibility to print several items per sticker.</p></li>
 </ul>
 <p align="center">
 <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png" width="715">
 <br /><br />
 </p><div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>To generate labels with Blabel you first need a HTML/Jinja template, and optionally a style sheet, to define how your labels will look like.</p>
-<p><strong>HTML item template</strong> (<code class="docutils literal"><span class="pre">item_template.html</span></code>)</p>
-<p>Notice the use of <code class="docutils literal"><span class="pre">label_tools</span></code> (Blabel’s builtin features). The variables <code class="docutils literal"><span class="pre">sample_name</span></code> and <code class="docutils literal"><span class="pre">sample_id</span></code> will be defined at label creation time.</p>
-<div class="code html highlight-default"><div class="highlight"><pre><span></span>&lt;img src=&quot;{{label_tools.qr_code(sample_id)}}&quot;/&gt;
-&lt;span class=&#39;label&#39;&gt;
-    {{ sample_name }} &lt;br/&gt;
-    Made with ❤ @ EGF &lt;br/&gt;
+<p>To generate labels with Blabel you first need a HTML/Jinja template, and
+optionally a style sheet, to define how your labels will look like.</p>
+<br/><br/><p><strong>HTML item template</strong> (<code class="docutils literal notranslate"><span class="pre">item_template.html</span></code>)</p>
+<p>Notice the use of <code class="docutils literal notranslate"><span class="pre">label_tools</span></code> (Blabel’s builtin features). The variables
+<code class="docutils literal notranslate"><span class="pre">sample_name</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_id</span></code> will be defined at label creation time.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{label_tools.qr_code(sample_id)}}&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;label&#39;</span><span class="p">&gt;</span>
+    {{ sample_name }} <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    Made with ❤ @ EGF <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
     🗓 {{ label_tools.now() }}
-&lt;/span&gt;
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p><strong>CSS stylesheet</strong> (<code class="docutils literal"><span class="pre">style.css</span></code>)</p>
-<p>Notice the CSS <code class="docutils literal"><span class="pre">&#64;page</span></code> attributes which allows you to adjust the page format to the dimensions of your sticker.</p>
-<div class="code css highlight-default"><div class="highlight"><pre><span></span><span class="nd">@page</span> <span class="p">{</span>
-    <span class="n">width</span><span class="p">:</span> <span class="mi">27</span><span class="n">mm</span><span class="p">;</span>
-    <span class="n">height</span><span class="p">:</span> <span class="mi">7</span><span class="n">mm</span><span class="p">;</span>
-    <span class="n">padding</span><span class="p">:</span> <span class="mf">0.5</span><span class="n">mm</span><span class="p">;</span>
+<br/><br/><p><strong>CSS stylesheet</strong> (<code class="docutils literal notranslate"><span class="pre">style.css</span></code>)</p>
+<p>Notice the CSS <code class="docutils literal notranslate"><span class="pre">&#64;page</span></code> attributes which allows you to adjust the page format
+to the dimensions of your sticker.
+Also notice the <code class="docutils literal notranslate"><span class="pre">pixelated</span></code> image rendering. If your printer is black/white
+only with no greyscale support, this option will ensure crisp-looking barcodes,
+qr codes, etc.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">page</span> <span class="p">{</span>
+    <span class="nt">width</span><span class="o">:</span> <span class="nt">27mm</span><span class="o">;</span>
+    <span class="nt">height</span><span class="o">:</span> <span class="nt">7mm</span><span class="o">;</span>
+    <span class="nt">padding</span><span class="o">:</span> <span class="nt">0</span><span class="p">.</span><span class="nc">5mm</span><span class="o">;</span>
 <span class="p">}</span>
-<span class="n">img</span> <span class="p">{</span>
-    <span class="n">height</span><span class="p">:</span> <span class="mf">6.4</span><span class="n">mm</span><span class="p">;</span>
-    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
-    <span class="n">vertical</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span><span class="p">;</span>
-    <span class="n">image</span><span class="o">-</span><span class="n">rendering</span><span class="p">:</span> <span class="n">pixelated</span><span class="p">;</span>
+<span class="nt">img</span> <span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mf">6.4</span><span class="kt">mm</span><span class="p">;</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+    <span class="n">image-rendering</span><span class="p">:</span> <span class="kc">pixelated</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="o">.</span><span class="n">label</span> <span class="p">{</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">Verdana</span><span class="p">;</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="n">bold</span><span class="p">;</span>
-    <span class="n">vertical</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">middle</span><span class="p">;</span>
-    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
-    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">7</span><span class="n">px</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">label</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="p">:</span> <span class="n">Verdana</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mi">7</span><span class="kt">px</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Python code</strong></p>
-<p>In your Python script, create a <code class="docutils literal"><span class="pre">LabelWriter</span></code> linked to the two files above,
+<br/><br/><p><strong>Python code</strong></p>
+<p>In your Python script, create a <code class="docutils literal notranslate"><span class="pre">LabelWriter</span></code> linked to the two files above,
 and feed it a list of of dicts (“records”), one for each label to print :</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">blabel</span> <span class="k">import</span> <span class="n">LabelWriter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">blabel</span> <span class="kn">import</span> <span class="n">LabelWriter</span>
 
 <span class="n">label_writer</span> <span class="o">=</span> <span class="n">LabelWriter</span><span class="p">(</span><span class="s2">&quot;item_template.html&quot;</span><span class="p">,</span>
                            <span class="n">default_stylesheets</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;style.css&quot;</span><span class="p">,))</span>
@@ -230,7 +236,7 @@ and feed it a list of of dicts (“records”), one for each label to print :</p
 <span class="n">label_writer</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;qrcode_and_label.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And voila !</p>
+<br/><br/><p><strong>Result:</strong></p>
 <p align="center">
 <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
 <br /><br />
@@ -238,16 +244,26 @@ and feed it a list of of dicts (“records”), one for each label to print :</p
 <div class="section" id="other-examples">
 <h2>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture">Example with a barcode and a dynamically generated picture</a></li>
-<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix">Ugly example with a logo and a datamatrix</a></li>
-<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date">Example with date and QR code (sources of the example above)</a></li>
-<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet">Example where the label data is read from spreadsheets</a></li>
-<li><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page">Example where several items are printed on each page/sticker</a></li>
+<li><p><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/barcode_and_dynamic_picture">Example with a barcode and a dynamically generated picture</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/logo_and_datamatrix">Ugly example with a logo and a datamatrix</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date">Example with date and QR code (sources of the example above)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet">Example where the label data is read from spreadsheets</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page">Example where several items are printed on each page/sticker</a></p></li>
 </ul>
 </div>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<p>In progress. See examples and source code in the mean time.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install Blabel via PIP:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">blabel</span>
+</pre></div>
+</div>
+<p>Alternatively, you can unzip the sources in a folder and type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p><strong>Note: on macOS</strong>, you may need to first install pango with <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">pango</span></code>.</p>
+<p><strong>Note: on some Debian systems</strong> you may need to first install libffi-dev (<code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libffi-dev</span></code>).
+The package name may be libffi-devel on some systems.</p>
 </div>
 <div class="section" id="license-mit">
 <h2>License = MIT<a class="headerlink" href="#license-mit" title="Permalink to this headline">¶</a></h2>
@@ -326,6 +342,7 @@ allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30p
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

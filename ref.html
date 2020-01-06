@@ -170,17 +170,15 @@
 <h2>LabelWriter<a class="headerlink" href="#labelwriter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="blabel.LabelWriter">
-<em class="property">class </em><code class="descclassname">blabel.</code><code class="descname">LabelWriter</code><span class="sig-paren">(</span><em>item_template_path=None</em>, <em>item_template=None</em>, <em>default_stylesheets=()</em>, <em>default_base_url=None</em>, <em>items_per_page=1</em>, <em>**default_context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">blabel.</code><code class="sig-name descname">LabelWriter</code><span class="sig-paren">(</span><em class="sig-param">item_template_path=None</em>, <em class="sig-param">item_template=None</em>, <em class="sig-param">default_stylesheets=()</em>, <em class="sig-param">default_base_url=None</em>, <em class="sig-param">items_per_page=1</em>, <em class="sig-param">**default_context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to write labels</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>item_template_path</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item_template_path</strong></p>
 <blockquote>
 <div><p>Path to an HTML/jinja2 html template file that will serve as template
 for translating a dict record into the HTML of one item.
-Alternatively an <code class="docutils literal"><span class="pre">item_template</span></code> parameter can be provided.</p>
+Alternatively an <code class="docutils literal notranslate"><span class="pre">item_template</span></code> parameter can be provided.</p>
 </div></blockquote>
 <p><strong>item_template</strong></p>
 <blockquote>
@@ -189,7 +187,7 @@ record into the HTML of one item.</p>
 </div></blockquote>
 <p><strong>default_stylesheets</strong></p>
 <blockquote>
-<div><p>List of <code class="docutils literal"><span class="pre">weasyprint.CSS</span></code> objects or path to <code class="docutils literal"><span class="pre">.css</span></code> spreadsheets
+<div><p>List of <code class="docutils literal notranslate"><span class="pre">weasyprint.CSS</span></code> objects or path to <code class="docutils literal notranslate"><span class="pre">.css</span></code> spreadsheets
 to be used for default styling.</p>
 </div></blockquote>
 <p><strong>default_base_url</strong></p>
@@ -205,38 +203,34 @@ by printing 2 labels per stickers and cutting the stickers in two
 afterwards.</p>
 </div></blockquote>
 <p><strong>**default_context</strong></p>
-<blockquote class="last">
+<blockquote>
 <div><p>Use keywords to add ny variable, function, etc. that you are using in
 the templates.</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="blabel.LabelWriter.record_to_html">
-<code class="descname">record_to_html</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.record_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.record_to_html" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">record_to_html</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.record_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.record_to_html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one record to an html string using the item template.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="blabel.LabelWriter.records_to_html">
-<code class="descname">records_to_html</code><span class="sig-paren">(</span><em>records</em>, <em>target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.records_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.records_to_html" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">records_to_html</code><span class="sig-paren">(</span><em class="sig-param">records</em>, <em class="sig-param">target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.records_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.records_to_html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the full HTML document to be printed.</p>
-<p>If <code class="docutils literal"><span class="pre">target</span></code> is None, the raw HTML string is returned, else the HTML
-is written at the path specified by <code class="docutils literal"><span class="pre">target</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">target</span></code> is None, the raw HTML string is returned, else the HTML
+is written at the path specified by <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="blabel.LabelWriter.write_labels">
-<code class="descname">write_labels</code><span class="sig-paren">(</span><em>records</em>, <em>target=None</em>, <em>extra_stylesheets=()</em>, <em>base_url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.write_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.write_labels" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_labels</code><span class="sig-paren">(</span><em class="sig-param">records</em>, <em class="sig-param">target=None</em>, <em class="sig-param">extra_stylesheets=()</em>, <em class="sig-param">base_url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.write_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.write_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the PDF document containing the labels to be printed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>records</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>records</strong></p>
 <blockquote>
 <div><p>List of dictionaries with the parameters of each label to print.</p>
 </div></blockquote>
@@ -251,14 +245,12 @@ the raw file data will be returned.</p>
 the default stylesheets.</p>
 </div></blockquote>
 <p><strong>base_url</strong></p>
-<blockquote class="last">
+<blockquote>
 <div><p>Path of the origin for the different relative path inside the HTML
 document getting printed.</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -269,43 +261,41 @@ document getting printed.</p>
 <p>Utilities for label generation.</p>
 <dl class="function">
 <dt id="blabel.label_tools.now">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">now</code><span class="sig-paren">(</span><em>fmt='%Y-%m-%d %H:%M'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.now" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">now</code><span class="sig-paren">(</span><em class="sig-param">fmt='%Y-%m-%d %H:%M'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the current time.</p>
 <p>Default format is  “year-month-day hour:minute” but another format can be
-provided (see <code class="docutils literal"><span class="pre">datetime</span></code> docs for date formatting)</p>
+provided (see <code class="docutils literal notranslate"><span class="pre">datetime</span></code> docs for date formatting)</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.pil_to_html_imgdata">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">pil_to_html_imgdata</code><span class="sig-paren">(</span><em>img</em>, <em>fmt='PNG'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#pil_to_html_imgdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.pil_to_html_imgdata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">pil_to_html_imgdata</code><span class="sig-paren">(</span><em class="sig-param">img</em>, <em class="sig-param">fmt='PNG'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#pil_to_html_imgdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.pil_to_html_imgdata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a PIL image into HTML-displayable data.</p>
-<p>The result is a string <code class="docutils literal"><span class="pre">data:image/FMT;base64,xxxxxxxxx</span></code> which you
-can provide as a “src” parameter to a <code class="docutils literal"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
+<p>The result is a string <code class="docutils literal notranslate"><span class="pre">data:image/FMT;base64,xxxxxxxxx</span></code> which you
+can provide as a “src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.wrap">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">wrap</code><span class="sig-paren">(</span><em>text</em>, <em>col_width</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#wrap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.wrap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">col_width</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#wrap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.wrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Breaks the text into lines with at maximum ‘col_width’ characters.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.hiro_square">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">hiro_square</code><span class="sig-paren">(</span><em>width='100%'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#hiro_square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.hiro_square" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">hiro_square</code><span class="sig-paren">(</span><em class="sig-param">width='100%'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#hiro_square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.hiro_square" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a &lt;svg/&gt; string of a Hiro square to be included in HTML.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.qr_code">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">qr_code</code><span class="sig-paren">(</span><em>data</em>, <em>optimize=20</em>, <em>fill_color='black'</em>, <em>back_color='white'</em>, <em>**qr_code_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#qr_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.qr_code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">qr_code</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">optimize=20</em>, <em class="sig-param">fill_color='black'</em>, <em class="sig-param">back_color='white'</em>, <em class="sig-param">**qr_code_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#qr_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.qr_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a QR code’s image data.</p>
-<p>Powered by the Python library <code class="docutils literal"><span class="pre">qrcode</span></code>. See this library’s documentation
+<p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">qrcode</span></code>. See this library’s documentation
 for more details.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
 <blockquote>
 <div><p>Data to be encoded in the QR code</p>
 </div></blockquote>
@@ -319,33 +309,29 @@ for more details.</p>
 </div></blockquote>
 <p><strong>**qr_code_params</strong></p>
 <blockquote>
-<div><p>Parameters of the <code class="docutils literal"><span class="pre">qrcode.QRCode</span></code> constructor, such as <code class="docutils literal"><span class="pre">version</span></code>,
-<code class="docutils literal"><span class="pre">error_correction</span></code>, <code class="docutils literal"><span class="pre">box_size</span></code>, <code class="docutils literal"><span class="pre">border</span></code>.</p>
+<div><p>Parameters of the <code class="docutils literal notranslate"><span class="pre">qrcode.QRCode</span></code> constructor, such as <code class="docutils literal notranslate"><span class="pre">version</span></code>,
+<code class="docutils literal notranslate"><span class="pre">error_correction</span></code>, <code class="docutils literal notranslate"><span class="pre">box_size</span></code>, <code class="docutils literal notranslate"><span class="pre">border</span></code>.</p>
 </div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">image_base64_data</p>
-<blockquote class="last">
-<div><p>A string <code class="docutils literal"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
-“src” parameter to a <code class="docutils literal"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image_base64_data</p>
+<blockquote>
+<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+“src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.datamatrix">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">datamatrix</code><span class="sig-paren">(</span><em>data</em>, <em>cellsize=2</em>, <em>with_border=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#datamatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.datamatrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">datamatrix</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">cellsize=2</em>, <em class="sig-param">with_border=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#datamatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.datamatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a datamatrix’s image data.</p>
-<p>Powered by the Python library <code class="docutils literal"><span class="pre">qrcode</span></code>. See this library’s documentation
+<p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">qrcode</span></code>. See this library’s documentation
 for more details.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
 <blockquote>
 <div><p>Data to be encoded in the datamatrix</p>
 </div></blockquote>
@@ -357,30 +343,26 @@ for more details.</p>
 <blockquote>
 <div><p>If false, there will be no border or margin to the datamatrix image.</p>
 </div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">image_base64_data</p>
-<blockquote class="last">
-<div><p>A string <code class="docutils literal"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
-“src” parameter to a <code class="docutils literal"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image_base64_data</p>
+<blockquote>
+<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+“src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="blabel.label_tools.barcode">
-<code class="descclassname">blabel.label_tools.</code><code class="descname">barcode</code><span class="sig-paren">(</span><em>data</em>, <em>barcode_class='code128'</em>, <em>**writer_options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#barcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.barcode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">barcode</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">barcode_class='code128'</em>, <em class="sig-param">fmt='png'</em>, <em class="sig-param">**writer_options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#barcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.barcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a barcode’s image data.</p>
-<p>Powered by the Python library <code class="docutils literal"><span class="pre">python-barcode</span></code>. See this library’s
+<p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">python-barcode</span></code>. See this library’s
 documentation for more details.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong></p>
 <blockquote>
 <div><p>Data to be encoded in the datamatrix</p>
 </div></blockquote>
@@ -394,17 +376,15 @@ different constraints.</p>
 <div><p>Various options for the writer to tune the appearance of the barcode
 (see python-barcode documentation)</p>
 </div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">image_base64_data</p>
-<blockquote class="last">
-<div><p>A string <code class="docutils literal"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
-“src” parameter to a <code class="docutils literal"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image_base64_data</p>
+<blockquote>
+<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+“src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -462,6 +442,7 @@ different constraints.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 
