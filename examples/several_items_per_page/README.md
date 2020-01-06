@@ -7,6 +7,5 @@ In this example we will print 3 items per sticker.
 This example shows:
 
 - How to set several items per sticker with ``items_per_page=3``.
-- How to use ``label_tools.now()`` to print a date (you can also provide a date formatting string to ``now()``).
 
 
