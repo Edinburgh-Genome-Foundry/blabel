@@ -136,10 +136,27 @@ Other examples
 
 
 
-Documentation
+Installation
 -------------
 
-In progress. See examples and source code in the mean time.
+You can install Blabel via PIP:
+
+.. code::
+
+    sudo pip install blabel
+
+Alternatively, you can unzip the sources in a folder and type
+
+.. code::
+
+    sudo python setup.py install
+
+**Note: on macOS**, you may need to first install pango with ``brew install pango``.
+
+**Note: on some Debian systems** you may need to first install libffi-dev (``apt install libffi-dev``).
+The package name may be libffi-devel on some systems.
+
+
 
 License = MIT
 --------------
