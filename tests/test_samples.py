@@ -29,7 +29,7 @@ def test_qrcode_and_date(tmpdir):
     target = os.path.join(str(tmpdir), 'target.html')
     label_writer.records_to_html(records, target=target)
     data = label_writer.write_labels(records, target=None)
-    assert 32_000 > len(data) > 27_000
+    assert 32_000 > len(data) > 25_000
     
 
 
@@ -74,7 +74,7 @@ def test_logo_and_datamatrix():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'logo_and_datamatrix')
     )
-    assert 27_000 > len(data) > 20_000
+    assert 27_000 > len(data) > 19_500
 
 def test_several_items_per_page():
     records= [
@@ -90,4 +90,4 @@ def test_several_items_per_page():
         records, target=None,
         base_url=os.path.join(SAMPLES_DIR, 'several_items_per_page')
     )
-    assert 28_000 > len(data) > 20_000
+    assert 28_000 > len(data) > 19_500
