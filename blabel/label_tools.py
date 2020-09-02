@@ -13,8 +13,8 @@ from PIL import Image, ImageOps
 def now(fmt="%Y-%m-%d %H:%M"):
     """Display the current time.
 
-    Default format is  "year-month-day hour:minute" but another format can be
-    provided (see ``datetime`` docs for date formatting)
+    Default format is "year-month-day hour:minute" but another format can be
+    provided (see ``datetime`` docs for date formatting).
     """
     now = datetime.datetime.now()
     if fmt is not None:
@@ -65,10 +65,10 @@ def qr_code(data, optimize=20, fill_color="black", back_color="white",
     Parameters
     ----------
     data
-      Data to be encoded in the QR code
+      Data to be encoded in the QR code.
     
     optimize
-      Chunk length optimization setting
+      Chunk length optimization setting.
     
     fill_color, back_color
       Colors to use for QRcode and its background.
@@ -100,16 +100,16 @@ def qr_code(data, optimize=20, fill_color="black", back_color="white",
 def datamatrix(data, cellsize=2, with_border=False):
     """Return a datamatrix's image data.
 
-    Powered by the Python library ``qrcode``. See this library's documentation
+    Powered by the Python library ``pyStrich``. See this library's documentation
     for more details.
 
     Parameters
     ----------
     data
-      Data to be encoded in the datamatrix
+      Data to be encoded in the datamatrix.
 
     cellsize
-      size of the picture in inches (?)
+      size of the picture in inches (?).
     
     with_border
       If false, there will be no border or margin to the datamatrix image.
@@ -142,7 +142,7 @@ def barcode(data, barcode_class='code128', fmt='png', **writer_options):
     Parameters
     ----------
     data
-      Data to be encoded in the datamatrix
+      Data to be encoded in the datamatrix.
 
     barcode_class
       Class/standard to use to encode the data. Different standards have
@@ -150,7 +150,7 @@ def barcode(data, barcode_class='code128', fmt='png', **writer_options):
     
     writer_options
       Various options for the writer to tune the appearance of the barcode
-      (see python-barcode documentation)
+      (see python-barcode documentation).
 
     Returns
     -------
