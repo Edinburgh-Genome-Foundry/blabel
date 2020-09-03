@@ -9,7 +9,7 @@ Blabel
 .. raw:: html
 
     <p align="center">
-    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+    <img alt="Blabel Logo" title="Blabel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
     <br /><br />
     </p>
 
@@ -51,8 +51,8 @@ Notice the use of ``label_tools`` (Blabel's builtin features). The variables
     <img src="{{label_tools.qr_code(sample_id)}}"/>
     <span class='label'>
         {{ sample_name }} <br/>
-        Made with ❤ @ EGF <br/>
-        🗓 {{ label_tools.now() }}
+        Made with blabel <br/>
+        {{ label_tools.now() }}
     </span>
 
 .. raw:: html
@@ -95,7 +95,7 @@ qr codes, etc.
 **Python code**
 
 In your Python script, create a ``LabelWriter`` linked to the two files above,
-and feed it a list of of dicts ("records"), one for each label to print :
+and feed it a list of of dicts ("records"), one for each label to print:
 
 
 .. code:: python
@@ -120,7 +120,7 @@ and feed it a list of of dicts ("records"), one for each label to print :
 .. raw:: html
 
     <p align="center">
-    <img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
+    <img alt="Blabel Logo" title="Labels" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
     <br /><br />
     </p>
 
@@ -143,7 +143,7 @@ You can install Blabel via PIP:
 
 .. code::
 
-    sudo pip install blabel
+    pip install blabel
 
 Alternatively, you can unzip the sources in a folder and type
 
@@ -163,7 +163,7 @@ License = MIT
 
 DnaChisel is an open-source software originally written at the `Edinburgh Genome Foundry
 <https://edinburgh-genome-foundry.github.io/home.html>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence (¢ Edinburg Genome Foundry). Everyone is welcome to contribute !
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence (Copyright 2018 Edinburgh Genome Foundry). Everyone is welcome to contribute!
 
 More biology software
 -----------------------
@@ -173,7 +173,3 @@ More biology software
 
 Blabel was originally written to print labels for biological samples and is part of the `EGF Codons <https://edinburgh-genome-foundry.github.io/>`_
 synthetic biology software suite for DNA design, manufacturing and validation.
-
-
-
-
