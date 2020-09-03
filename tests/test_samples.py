@@ -29,7 +29,7 @@ def test_qrcode_and_date(tmpdir):
     target = os.path.join(str(tmpdir), "target.html")
     label_writer.records_to_html(records, target=target)
     data = label_writer.write_labels(records, target=None)
-    assert 32_000 > len(data) > 25_000
+    assert 32_000 > len(data) > 22_000
 
 
 def test_barcode_and_dynamic_picture():
@@ -42,9 +42,7 @@ def test_barcode_and_dynamic_picture():
 
     template, style = get_template_and_style("barcode_and_dynamic_picture")
     label_writer = blabel.LabelWriter(
-        template,
-        default_stylesheets=(style,),
-        generate_identicon=generate_identicon,
+        template, default_stylesheets=(style,), generate_identicon=generate_identicon,
     )
     records = [
         dict(sample_id="s01", sample_name="Sample 1"),
@@ -75,9 +73,7 @@ def test_logo_and_datamatrix():
     template, style = get_template_and_style("logo_and_datamatrix")
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
     data = label_writer.write_labels(
-        records,
-        target=None,
-        base_url=os.path.join(SAMPLES_DIR, "logo_and_datamatrix"),
+        records, target=None, base_url=os.path.join(SAMPLES_DIR, "logo_and_datamatrix"),
     )
     assert 27_000 > len(data) > 19_500
 
@@ -97,4 +93,4 @@ def test_several_items_per_page():
         target=None,
         base_url=os.path.join(SAMPLES_DIR, "several_items_per_page"),
     )
-    assert 28_000 > len(data) > 19_500
+    assert 28_000 > len(data) > 18_000
