@@ -8,5 +8,3 @@ This example shows:
 
 - How to use ``label_tools.qr_code()``.
 - How to use ``label_tools.now()`` to print a date (you can also provide a date formatting string to ``now()``).
-
-

@@ -8,5 +8,3 @@ This example shows:
 
 - How to use local pictures (notice that it requires to set the ``base_url`` in ``write_pdf``).
 - How to use ``label_tools.datamatrix()``
-
-

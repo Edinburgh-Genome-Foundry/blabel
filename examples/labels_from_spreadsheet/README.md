@@ -14,6 +14,3 @@ Install Pandas with:
 ```
 pip install pandas
 ```
-
-
-
