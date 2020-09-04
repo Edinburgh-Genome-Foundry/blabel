@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,46 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="blabel 0.1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> blabel
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> blabel
           
 
           
@@ -84,6 +77,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,13 +96,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">blabel</a>
@@ -116,9 +111,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -139,7 +135,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
@@ -147,8 +143,6 @@
     
     
       <li class="wy-breadcrumbs-aside">
-        
-            
         
       </li>
     
@@ -164,20 +158,20 @@
 <span></span><span class="sd">&quot;&quot;&quot;Utilities for label generation.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">base64</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 
 <span class="kn">import</span> <span class="nn">qrcode</span>
 <span class="kn">import</span> <span class="nn">barcode</span> <span class="k">as</span> <span class="nn">python_barcode</span>
-<span class="kn">from</span> <span class="nn">pystrich.datamatrix</span> <span class="k">import</span> <span class="n">DataMatrixEncoder</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageOps</span>
+<span class="kn">from</span> <span class="nn">pystrich.datamatrix</span> <span class="kn">import</span> <span class="n">DataMatrixEncoder</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageOps</span>
 
 <div class="viewcode-block" id="now"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.now">[docs]</a><span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Display the current time.</span>
 
-<span class="sd">    Default format is  &quot;year-month-day hour:minute&quot; but another format can be</span>
-<span class="sd">    provided (see ``datetime`` docs for date formatting)</span>
+<span class="sd">    Default format is &quot;year-month-day hour:minute&quot; but another format can be</span>
+<span class="sd">    provided (see ``datetime`` docs for date formatting).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -228,10 +222,10 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    data</span>
-<span class="sd">      Data to be encoded in the QR code</span>
+<span class="sd">      Data to be encoded in the QR code.</span>
 <span class="sd">    </span>
 <span class="sd">    optimize</span>
-<span class="sd">      Chunk length optimization setting</span>
+<span class="sd">      Chunk length optimization setting.</span>
 <span class="sd">    </span>
 <span class="sd">    fill_color, back_color</span>
 <span class="sd">      Colors to use for QRcode and its background.</span>
@@ -263,16 +257,16 @@
 <div class="viewcode-block" id="datamatrix"><a class="viewcode-back" href="../../ref.html#blabel.label_tools.datamatrix">[docs]</a><span class="k">def</span> <span class="nf">datamatrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cellsize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">with_border</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a datamatrix&#39;s image data.</span>
 
-<span class="sd">    Powered by the Python library ``qrcode``. See this library&#39;s documentation</span>
+<span class="sd">    Powered by the Python library ``pyStrich``. See this library&#39;s documentation</span>
 <span class="sd">    for more details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    data</span>
-<span class="sd">      Data to be encoded in the datamatrix</span>
+<span class="sd">      Data to be encoded in the datamatrix.</span>
 
 <span class="sd">    cellsize</span>
-<span class="sd">      size of the picture in inches (?)</span>
+<span class="sd">      size of the picture in inches (?).</span>
 <span class="sd">    </span>
 <span class="sd">    with_border</span>
 <span class="sd">      If false, there will be no border or margin to the datamatrix image.</span>
@@ -305,7 +299,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    data</span>
-<span class="sd">      Data to be encoded in the datamatrix</span>
+<span class="sd">      Data to be encoded in the datamatrix.</span>
 
 <span class="sd">    barcode_class</span>
 <span class="sd">      Class/standard to use to encode the data. Different standards have</span>
@@ -313,7 +307,7 @@
 <span class="sd">    </span>
 <span class="sd">    writer_options</span>
 <span class="sd">      Various options for the writer to tune the appearance of the barcode</span>
-<span class="sd">      (see python-barcode documentation)</span>
+<span class="sd">      (see python-barcode documentation).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -356,9 +350,7 @@
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -367,11 +359,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Zulko.
+        
+        &copy; Copyright 2018, Zulko
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -383,38 +383,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

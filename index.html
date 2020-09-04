@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,47 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="blabel 0.1.0 documentation" href="#"/>
-        <link rel="next" title="Blabel Reference manual" href="ref.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Blabel Reference manual" href="ref.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="#" class="icon icon-home"> blabel
+            <a href="#" class="icon icon-home" alt="Documentation Home"> blabel
           
 
           
@@ -84,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,13 +97,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">blabel</a>
@@ -116,9 +112,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -139,7 +136,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
       <li>Blabel</li>
     
@@ -165,7 +162,7 @@
 <a class="reference external image-reference" href="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel"><img alt="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" src="https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master" /></a>
 <a class="reference external image-reference" href="https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master"><img alt="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master" /></a>
 <p align="center">
-<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+<img alt="Blabel Logo" title="Blabel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
 <br /><br />
 </p><p>Blabel is a python library to generate labels (typically for printing stickers)
 with barcodes and other niceties.</p>
@@ -190,8 +187,8 @@ optionally a style sheet, to define how your labels will look like.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{label_tools.qr_code(sample_id)}}&quot;</span><span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;label&#39;</span><span class="p">&gt;</span>
     {{ sample_name }} <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
-    Made with ❤ @ EGF <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
-    🗓 {{ label_tools.now() }}
+    Made with blabel <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    {{ label_tools.now() }}
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -223,7 +220,7 @@ qr codes, etc.</p>
 </div>
 <br/><br/><p><strong>Python code</strong></p>
 <p>In your Python script, create a <code class="docutils literal notranslate"><span class="pre">LabelWriter</span></code> linked to the two files above,
-and feed it a list of of dicts (“records”), one for each label to print :</p>
+and feed it a list of of dicts (“records”), one for each label to print:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">blabel</span> <span class="kn">import</span> <span class="n">LabelWriter</span>
 
 <span class="n">label_writer</span> <span class="o">=</span> <span class="n">LabelWriter</span><span class="p">(</span><span class="s2">&quot;item_template.html&quot;</span><span class="p">,</span>
@@ -238,7 +235,7 @@ and feed it a list of of dicts (“records”), one for each label to print :</p
 </div>
 <br/><br/><p><strong>Result:</strong></p>
 <p align="center">
-<img alt="Blabel Logo" title="DNA Chisel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
+<img alt="Blabel Logo" title="Labels" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/examples/qrcode_and_date/screenshot.png" width="300">
 <br /><br />
 </p></div>
 <div class="section" id="other-examples">
@@ -254,7 +251,7 @@ and feed it a list of of dicts (“records”), one for each label to print :</p
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>You can install Blabel via PIP:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">blabel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">blabel</span>
 </pre></div>
 </div>
 <p>Alternatively, you can unzip the sources in a folder and type</p>
@@ -268,7 +265,7 @@ The package name may be libffi-devel on some systems.</p>
 <div class="section" id="license-mit">
 <h2>License = MIT<a class="headerlink" href="#license-mit" title="Permalink to this headline">¶</a></h2>
 <p>DnaChisel is an open-source software originally written at the <a class="reference external" href="https://edinburgh-genome-foundry.github.io/home.html">Edinburgh Genome Foundry</a> by <a class="reference external" href="https://github.com/Zulko">Zulko</a>
-and <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel">released on Github</a> under the MIT licence (¢ Edinburg Genome Foundry). Everyone is welcome to contribute !</p>
+and <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/blabel">released on Github</a> under the MIT licence (Copyright 2018 Edinburgh Genome Foundry). Everyone is welcome to contribute!</p>
 </div>
 <div class="section" id="more-biology-software">
 <h2>More biology software<a class="headerlink" href="#more-biology-software" title="Permalink to this headline">¶</a></h2>
@@ -292,9 +289,7 @@ allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30p
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -310,11 +305,19 @@ allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30p
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Zulko.
+        
+        &copy; Copyright 2018, Zulko
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -326,38 +329,15 @@ allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30p
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

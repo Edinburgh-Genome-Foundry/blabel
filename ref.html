@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,47 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="blabel 0.1.0 documentation" href="index.html"/>
-        <link rel="prev" title="Blabel" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Blabel" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> blabel
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> blabel
           
 
           
@@ -84,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -106,13 +101,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">blabel</a>
@@ -120,9 +116,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -143,7 +140,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Blabel Reference manual</li>
     
@@ -168,87 +165,88 @@
 <span id="reference"></span><h1>Blabel Reference manual<a class="headerlink" href="#blabel-reference-manual" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="labelwriter">
 <h2>LabelWriter<a class="headerlink" href="#labelwriter" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="blabel.LabelWriter">
-<em class="property">class </em><code class="sig-prename descclassname">blabel.</code><code class="sig-name descname">LabelWriter</code><span class="sig-paren">(</span><em class="sig-param">item_template_path=None</em>, <em class="sig-param">item_template=None</em>, <em class="sig-param">default_stylesheets=()</em>, <em class="sig-param">default_base_url=None</em>, <em class="sig-param">items_per_page=1</em>, <em class="sig-param">**default_context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">blabel.</code><code class="sig-name descname">LabelWriter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item_template_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">item_template</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default_stylesheets</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">default_base_url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">items_per_page</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">default_context</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to write labels</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>item_template_path</strong></p>
-<blockquote>
-<div><p>Path to an HTML/jinja2 html template file that will serve as template
+<dd class="field-odd"><dl class="simple">
+<dt><strong>item_template_path</strong></dt><dd><p>Path to an HTML/jinja2 html template file that will serve as template
 for translating a dict record into the HTML of one item.
 Alternatively an <code class="docutils literal notranslate"><span class="pre">item_template</span></code> parameter can be provided.</p>
-</div></blockquote>
-<p><strong>item_template</strong></p>
-<blockquote>
-<div><p>jinja2.Template object to serve as a template for translating a dict
+</dd>
+<dt><strong>item_template</strong></dt><dd><p>jinja2.Template object to serve as a template for translating a dict
 record into the HTML of one item.</p>
-</div></blockquote>
-<p><strong>default_stylesheets</strong></p>
-<blockquote>
-<div><p>List of <code class="docutils literal notranslate"><span class="pre">weasyprint.CSS</span></code> objects or path to <code class="docutils literal notranslate"><span class="pre">.css</span></code> spreadsheets
+</dd>
+<dt><strong>default_stylesheets</strong></dt><dd><p>List of <code class="docutils literal notranslate"><span class="pre">weasyprint.CSS</span></code> objects or path to <code class="docutils literal notranslate"><span class="pre">.css</span></code> spreadsheets
 to be used for default styling.</p>
-</div></blockquote>
-<p><strong>default_base_url</strong></p>
-<blockquote>
-<div><p>Path to use as origin for relative paths in the HTML document.
+</dd>
+<dt><strong>default_base_url</strong></dt><dd><p>Path to use as origin for relative paths in the HTML document.
 (Only useful when using assets such as images etc.)</p>
-</div></blockquote>
-<p><strong>items_per_page</strong></p>
-<blockquote>
-<div><p>Number of items per page (= per sticker). This is particularly practical
+</dd>
+<dt><strong>items_per_page</strong></dt><dd><p>Number of items per page (= per sticker). This is particularly practical
 if you only have “landscape” stickers and want to print square labels
 by printing 2 labels per stickers and cutting the stickers in two
 afterwards.</p>
-</div></blockquote>
-<p><strong>**default_context</strong></p>
-<blockquote>
-<div><p>Use keywords to add ny variable, function, etc. that you are using in
+</dd>
+<dt><strong>**default_context</strong></dt><dd><p>Use keywords to add ny variable, function, etc. that you are using in
 the templates.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<dl class="method">
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#blabel.LabelWriter.record_to_html" title="blabel.LabelWriter.record_to_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_to_html</span></code></a>(record)</p></td>
+<td><p>Convert one record to an html string using the item template.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#blabel.LabelWriter.records_to_html" title="blabel.LabelWriter.records_to_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">records_to_html</span></code></a>(records[, target])</p></td>
+<td><p>Build the full HTML document to be printed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#blabel.LabelWriter.write_labels" title="blabel.LabelWriter.write_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_labels</span></code></a>(records[, target, …])</p></td>
+<td><p>Write the PDF document containing the labels to be printed.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
 <dt id="blabel.LabelWriter.record_to_html">
-<code class="sig-name descname">record_to_html</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.record_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.record_to_html" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">record_to_html</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">record</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.record_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.record_to_html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one record to an html string using the item template.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="blabel.LabelWriter.records_to_html">
-<code class="sig-name descname">records_to_html</code><span class="sig-paren">(</span><em class="sig-param">records</em>, <em class="sig-param">target=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.records_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.records_to_html" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">records_to_html</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">records</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.records_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.records_to_html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the full HTML document to be printed.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">target</span></code> is None, the raw HTML string is returned, else the HTML
 is written at the path specified by <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="blabel.LabelWriter.write_labels">
-<code class="sig-name descname">write_labels</code><span class="sig-paren">(</span><em class="sig-param">records</em>, <em class="sig-param">target=None</em>, <em class="sig-param">extra_stylesheets=()</em>, <em class="sig-param">base_url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.write_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.write_labels" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">records</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">extra_stylesheets</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">base_url</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/blabel.html#LabelWriter.write_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.LabelWriter.write_labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the PDF document containing the labels to be printed.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>records</strong></p>
-<blockquote>
-<div><p>List of dictionaries with the parameters of each label to print.</p>
-</div></blockquote>
-<p><strong>target</strong></p>
-<blockquote>
-<div><p>Path of the PDF file to be generated. If left to None or “&#64;memory”,
+<dd class="field-odd"><dl class="simple">
+<dt><strong>records</strong></dt><dd><p>List of dictionaries with the parameters of each label to print.</p>
+</dd>
+<dt><strong>target</strong></dt><dd><p>Path of the PDF file to be generated. If left to None or “&#64;memory”,
 the raw file data will be returned.</p>
-</div></blockquote>
-<p><strong>extra_stylesheets</strong></p>
-<blockquote>
-<div><p>List of path to stylesheets of Weasyprint CSS objects to complement
+</dd>
+<dt><strong>extra_stylesheets</strong></dt><dd><p>List of path to stylesheets of Weasyprint CSS objects to complement
 the default stylesheets.</p>
-</div></blockquote>
-<p><strong>base_url</strong></p>
-<blockquote>
-<div><p>Path of the origin for the different relative path inside the HTML
+</dd>
+<dt><strong>base_url</strong></dt><dd><p>Path of the origin for the different relative path inside the HTML
 document getting printed.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -259,130 +257,116 @@ document getting printed.</p>
 <div class="section" id="module-blabel.label_tools">
 <span id="tools"></span><h2>Tools<a class="headerlink" href="#module-blabel.label_tools" title="Permalink to this headline">¶</a></h2>
 <p>Utilities for label generation.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.now">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">now</code><span class="sig-paren">(</span><em class="sig-param">fmt='%Y-%m-%d %H:%M'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.now" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">now</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'%Y-%m-%d %H:%M'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the current time.</p>
-<p>Default format is  “year-month-day hour:minute” but another format can be
-provided (see <code class="docutils literal notranslate"><span class="pre">datetime</span></code> docs for date formatting)</p>
+<p>Default format is “year-month-day hour:minute” but another format can be
+provided (see <code class="docutils literal notranslate"><span class="pre">datetime</span></code> docs for date formatting).</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.pil_to_html_imgdata">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">pil_to_html_imgdata</code><span class="sig-paren">(</span><em class="sig-param">img</em>, <em class="sig-param">fmt='PNG'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#pil_to_html_imgdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.pil_to_html_imgdata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">pil_to_html_imgdata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'PNG'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#pil_to_html_imgdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.pil_to_html_imgdata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a PIL image into HTML-displayable data.</p>
 <p>The result is a string <code class="docutils literal notranslate"><span class="pre">data:image/FMT;base64,xxxxxxxxx</span></code> which you
 can provide as a “src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.wrap">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">col_width</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#wrap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.wrap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">col_width</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#wrap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.wrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Breaks the text into lines with at maximum ‘col_width’ characters.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.hiro_square">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">hiro_square</code><span class="sig-paren">(</span><em class="sig-param">width='100%'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#hiro_square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.hiro_square" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">hiro_square</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">'100%'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#hiro_square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.hiro_square" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a &lt;svg/&gt; string of a Hiro square to be included in HTML.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.qr_code">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">qr_code</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">optimize=20</em>, <em class="sig-param">fill_color='black'</em>, <em class="sig-param">back_color='white'</em>, <em class="sig-param">**qr_code_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#qr_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.qr_code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">qr_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">optimize</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">fill_color</span><span class="o">=</span><span class="default_value">'black'</span></em>, <em class="sig-param"><span class="n">back_color</span><span class="o">=</span><span class="default_value">'white'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">qr_code_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#qr_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.qr_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a QR code’s image data.</p>
 <p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">qrcode</span></code>. See this library’s documentation
 for more details.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong></p>
-<blockquote>
-<div><p>Data to be encoded in the QR code</p>
-</div></blockquote>
-<p><strong>optimize</strong></p>
-<blockquote>
-<div><p>Chunk length optimization setting</p>
-</div></blockquote>
-<p><strong>fill_color, back_color</strong></p>
-<blockquote>
-<div><p>Colors to use for QRcode and its background.</p>
-</div></blockquote>
-<p><strong>**qr_code_params</strong></p>
-<blockquote>
-<div><p>Parameters of the <code class="docutils literal notranslate"><span class="pre">qrcode.QRCode</span></code> constructor, such as <code class="docutils literal notranslate"><span class="pre">version</span></code>,
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>Data to be encoded in the QR code.</p>
+</dd>
+<dt><strong>optimize</strong></dt><dd><p>Chunk length optimization setting.</p>
+</dd>
+<dt><strong>fill_color, back_color</strong></dt><dd><p>Colors to use for QRcode and its background.</p>
+</dd>
+<dt><strong>**qr_code_params</strong></dt><dd><p>Parameters of the <code class="docutils literal notranslate"><span class="pre">qrcode.QRCode</span></code> constructor, such as <code class="docutils literal notranslate"><span class="pre">version</span></code>,
 <code class="docutils literal notranslate"><span class="pre">error_correction</span></code>, <code class="docutils literal notranslate"><span class="pre">box_size</span></code>, <code class="docutils literal notranslate"><span class="pre">border</span></code>.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>image_base64_data</p>
-<blockquote>
-<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+<dd class="field-even"><dl class="simple">
+<dt>image_base64_data</dt><dd><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
 “src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.datamatrix">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">datamatrix</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">cellsize=2</em>, <em class="sig-param">with_border=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#datamatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.datamatrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">datamatrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">cellsize</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">with_border</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#datamatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.datamatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a datamatrix’s image data.</p>
-<p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">qrcode</span></code>. See this library’s documentation
+<p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">pyStrich</span></code>. See this library’s documentation
 for more details.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong></p>
-<blockquote>
-<div><p>Data to be encoded in the datamatrix</p>
-</div></blockquote>
-<p><strong>cellsize</strong></p>
-<blockquote>
-<div><p>size of the picture in inches (?)</p>
-</div></blockquote>
-<p><strong>with_border</strong></p>
-<blockquote>
-<div><p>If false, there will be no border or margin to the datamatrix image.</p>
-</div></blockquote>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>Data to be encoded in the datamatrix.</p>
+</dd>
+<dt><strong>cellsize</strong></dt><dd><p>size of the picture in inches (?).</p>
+</dd>
+<dt><strong>with_border</strong></dt><dd><p>If false, there will be no border or margin to the datamatrix image.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>image_base64_data</p>
-<blockquote>
-<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+<dd class="field-even"><dl class="simple">
+<dt>image_base64_data</dt><dd><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
 “src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="blabel.label_tools.barcode">
-<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">barcode</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">barcode_class='code128'</em>, <em class="sig-param">fmt='png'</em>, <em class="sig-param">**writer_options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#barcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.barcode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">blabel.label_tools.</code><code class="sig-name descname">barcode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">barcode_class</span><span class="o">=</span><span class="default_value">'code128'</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'png'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">writer_options</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/blabel/label_tools.html#barcode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#blabel.label_tools.barcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a barcode’s image data.</p>
 <p>Powered by the Python library <code class="docutils literal notranslate"><span class="pre">python-barcode</span></code>. See this library’s
 documentation for more details.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong></p>
-<blockquote>
-<div><p>Data to be encoded in the datamatrix</p>
-</div></blockquote>
-<p><strong>barcode_class</strong></p>
-<blockquote>
-<div><p>Class/standard to use to encode the data. Different standards have
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong></dt><dd><p>Data to be encoded in the datamatrix.</p>
+</dd>
+<dt><strong>barcode_class</strong></dt><dd><p>Class/standard to use to encode the data. Different standards have
 different constraints.</p>
-</div></blockquote>
-<p><strong>writer_options</strong></p>
-<blockquote>
-<div><p>Various options for the writer to tune the appearance of the barcode
-(see python-barcode documentation)</p>
-</div></blockquote>
+</dd>
+<dt><strong>writer_options</strong></dt><dd><p>Various options for the writer to tune the appearance of the barcode
+(see python-barcode documentation).</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>image_base64_data</p>
-<blockquote>
-<div><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
+<dd class="field-even"><dl class="simple">
+<dt>image_base64_data</dt><dd><p>A string <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,xxxxxxxxx</span></code> which you can provide as a
 “src” parameter to a <code class="docutils literal notranslate"><span class="pre">&lt;img/&gt;</span></code> tag.</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -392,16 +376,14 @@ different constraints.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="index.html" class="btn btn-neutral" title="Blabel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Blabel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -410,11 +392,19 @@ different constraints.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Zulko.
+        
+        &copy; Copyright 2018, Zulko
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -426,38 +416,15 @@ different constraints.</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
