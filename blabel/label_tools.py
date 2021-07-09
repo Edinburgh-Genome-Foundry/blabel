@@ -139,7 +139,7 @@ def datamatrix(data, cellsize=2, with_border=False):
     return pil_to_html_imgdata(img)
 
 
-def barcode(data, barcode_class='code128', fmt='png', writer_options={}):
+def barcode(data, barcode_class='code128', fmt='png', writer_options={}, add_checksum=True):
     """Return a barcode's image data.
 
     Powered by the Python library ``python-barcode``. See this library's
@@ -189,7 +189,10 @@ def barcode(data, barcode_class='code128', fmt='png', writer_options={}):
         'svg': python_barcode.writer.SVGWriter,
         'png': python_barcode.writer.ImageWriter
     }[fmt]
-    barcode_img = constructor(data, writer=writer())
+    if 'add_checksum' in getattr(constructor, '__init__').__code__.co_varnames:
+        barcode_img = constructor(data, writer=writer(), add_checksum=add_checksum)
+    else:
+        barcode_img = constructor(data, writer=writer())
     img = barcode_img.render(writer_options=writer_options)
     if fmt == 'png':
         return pil_to_html_imgdata(img, fmt='PNG')
