@@ -133,7 +133,7 @@ def datamatrix(data, cellsize=2, with_border=False):
         img = img.crop(ImageOps.invert(img).getbbox())
     return pil_to_html_imgdata(img)
 
-def barcode(data, barcode_class='code128', fmt='png', **writer_options):
+def barcode(data, barcode_class='code128', fmt='png', writer_options={}):
     """Return a barcode's image data.
 
     Powered by the Python library ``python-barcode``. See this library's

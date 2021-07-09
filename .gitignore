@@ -54,3 +54,5 @@ examples/features/downloaded_data
 .coverage
 docs/_build
 .vscode
+.idea/
+venv/
