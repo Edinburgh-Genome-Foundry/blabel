@@ -10,6 +10,7 @@ import barcode as python_barcode
 from pystrich.datamatrix import DataMatrixEncoder
 from PIL import Image, ImageOps
 
+
 def now(fmt="%Y-%m-%d %H:%M"):
     """Display the current time.
 
@@ -21,7 +22,8 @@ def now(fmt="%Y-%m-%d %H:%M"):
         now = now.strftime(fmt)
     return now
 
-def pil_to_html_imgdata(img, fmt='PNG'):
+
+def pil_to_html_imgdata(img, fmt="PNG"):
     """Convert a PIL image into HTML-displayable data.
     
     The result is a string ``data:image/FMT;base64,xxxxxxxxx`` which you
@@ -36,27 +38,34 @@ def pil_to_html_imgdata(img, fmt='PNG'):
     buffered = BytesIO()
     img.save(buffered, format=fmt)
     img_str = base64.b64encode(buffered.getvalue())
-    prefix = 'data:image/%s;charset=utf-8;base64,' % fmt.lower()
-    return  prefix + img_str.decode()
+    prefix = "data:image/%s;charset=utf-8;base64," % fmt.lower()
+    return prefix + img_str.decode()
+
 
 def wrap(text, col_width):
     """Breaks the text into lines with at maximum 'col_width' characters."""
     return "\n".join(textwrap.wrap(text, col_width))
 
-def hiro_square(width='100%'):
+
+def hiro_square(width="100%"):
     """Return a <svg/> string of a Hiro square to be included in HTML."""
-    svg= """
+    svg = """
       <svg height="%s" width="%s" version="1.1" viewBox="0 0 4 4"
         xmlns="http://www.w3.org/2000/svg">
         <rect x="0" y="0" width="4" height="4" fill="#000" stroke-width="0"/>
         <rect x="1" y="1" width="2" height="2" fill="#fff" stroke-width="0"/>
       </svg>
-    """ % (width, width)
+    """ % (
+        width,
+        width,
+    )
     prefix = "data:image/svg+xml;charset=utf-8;base64,"
-    return  prefix + base64.b64encode(svg.encode()).decode()
+    return prefix + base64.b64encode(svg.encode()).decode()
 
-def qr_code(data, optimize=20, fill_color="black", back_color="white",
-            **qr_code_params):
+
+def qr_code(
+    data, optimize=20, fill_color="black", back_color="white", **qr_code_params
+):
     """Return a QR code's image data.
 
     Powered by the Python library ``qrcode``. See this library's documentation
@@ -133,7 +142,8 @@ def datamatrix(data, cellsize=2, with_border=False):
         img = img.crop(ImageOps.invert(img).getbbox())
     return pil_to_html_imgdata(img)
 
-def barcode(data, barcode_class='code128', fmt='png', **writer_options):
+
+def barcode(data, barcode_class="code128", fmt="png", **writer_options):
     """Return a barcode's image data.
 
     Powered by the Python library ``python-barcode``. See this library's
@@ -180,13 +190,13 @@ def barcode(data, barcode_class='code128', fmt='png', **writer_options):
     constructor = python_barcode.get_barcode_class(barcode_class)
     data = str(data).zfill(constructor.digits)
     writer = {
-      'svg': python_barcode.writer.ImageWriter,
-      'png':python_barcode.writer.ImageWriter
+        "svg": python_barcode.writer.SVGWriter,
+        "png": python_barcode.writer.ImageWriter,
     }[fmt]
     barcode_img = constructor(data, writer=writer())
     img = barcode_img.render(writer_options=writer_options)
-    if fmt == 'png':
-      return pil_to_html_imgdata(img, fmt='PNG')
+    if fmt == "png":
+        return pil_to_html_imgdata(img, fmt="PNG")
     else:
         prefix = "data:image/svg+xml;charset=utf-8;base64,"
         return prefix + base64.b64encode(img).decode()
