@@ -1,7 +1,8 @@
 Blabel
 ======
-.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
-    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
+
+.. image:: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel.svg?branch=master
+    :target: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel
 
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
     :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
@@ -13,7 +14,7 @@ Blabel
     <br /><br />
     </p>
 
-Blabel is a python library to generate labels (typically for printing stickers)
+Blabel is a Python package to generate labels (typically for printing stickers)
 with barcodes and other niceties.
 
 **Some features:**
@@ -31,8 +32,9 @@ with barcodes and other niceties.
     <br /><br />
     </p>
 
+
 Example
---------
+-------
 
 To generate labels with Blabel you first need a HTML/Jinja template, and
 optionally a style sheet, to define how your labels will look like.
@@ -124,6 +126,7 @@ and feed it a list of of dicts ("records"), one for each label to print:
     <br /><br />
     </p>
 
+
 Other examples
 --------------
 
@@ -132,8 +135,6 @@ Other examples
 - `Example with date and QR code (sources of the example above) <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/qrcode_and_date>`_
 - `Example where the label data is read from spreadsheets <https://github.com/Edinburgh-Genome-Foundry/blabel/blob/master/examples/labels_from_spreadsheet>`_
 - `Example where several items are printed on each page/sticker <https://github.com/Edinburgh-Genome-Foundry/blabel/tree/master/examples/several_items_per_page>`_
-
-
 
 
 Installation
@@ -149,7 +150,7 @@ Alternatively, you can unzip the sources in a folder and type
 
 .. code::
 
-    sudo python setup.py install
+    python setup.py install
 
 **Note: on macOS**, you may need to first install pango with ``brew install pango``.
 
@@ -157,16 +158,16 @@ Alternatively, you can unzip the sources in a folder and type
 The package name may be libffi-devel on some systems.
 
 
-
 License = MIT
---------------
+-------------
 
 DnaChisel is an open-source software originally written at the `Edinburgh Genome Foundry
 <https://edinburgh-genome-foundry.github.io/home.html>`_ by `Zulko <https://github.com/Zulko>`_
 and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence (Copyright 2018 Edinburgh Genome Foundry). Everyone is welcome to contribute!
 
+
 More biology software
------------------------
+---------------------
 
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Edinburgh-Genome-Foundry.github.io/master/static/imgs/logos/egf-codon-horizontal.png
   :target: https://edinburgh-genome-foundry.github.io/

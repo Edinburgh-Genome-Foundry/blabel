@@ -1,15 +1,15 @@
 Blabel
 ======
 
-.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel.svg?branch=master
-    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/blabel
+.. image:: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel.svg?branch=master
+    :target: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel
 
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
     :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
 
 
-Blabel is a python library to generate labels (typically for printing stickers)
-with barcodes and other niceties
+Blabel is a Python package to generate labels (typically for printing stickers)
+with barcodes and other niceties.
 
 **Some features:**
 
@@ -20,6 +20,7 @@ with barcodes and other niceties
 - Possibility to print several items per sticker.
 
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/demo_screenshot.png
+
 
 Infos
 -----
@@ -41,15 +42,12 @@ Infos
 
 **License:** MIT, Copyright Edinburgh Genome Foundry
 
+
 More biology software
------------------------
+---------------------
 
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Edinburgh-Genome-Foundry.github.io/master/static/imgs/logos/egf-codon-horizontal.png
   :target: https://edinburgh-genome-foundry.github.io/
 
 Blabel was originally written to print labels for biological samples and is part of the `EGF Codons <https://edinburgh-genome-foundry.github.io/>`_
 synthetic biology software suite for DNA design, manufacturing and validation.
-
-
-
-
