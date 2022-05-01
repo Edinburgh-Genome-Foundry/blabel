@@ -53,7 +53,7 @@ def write_pdf(html, target=None, base_url=None, extra_stylesheets=()):
 
 
 class LabelWriter:
-    """Class to write labels
+    """Class to write labels.
 
     Parameters
     ----------
@@ -62,12 +62,12 @@ class LabelWriter:
       Path to an HTML/jinja2 html template file that will serve as template
       for translating a dict record into the HTML of one item.
       Alternatively an ``item_template`` parameter can be provided.
-    
+      Set encoding of the file with the ``encoding`` parameter (e.g. utf-8).
+
     item_template
       jinja2.Template object to serve as a template for translating a dict
-      record into the HTML of one item.
-      
-    
+      record into the HTML of one item.  
+
     default_stylesheets
       List of ``weasyprint.CSS`` objects or path to ``.css`` spreadsheets
       to be used for default styling.
@@ -75,15 +75,18 @@ class LabelWriter:
     default_base_url
       Path to use as origin for relative paths in the HTML document.
       (Only useful when using assets such as images etc.)
-    
+
     items_per_page
       Number of items per page (= per sticker). This is particularly practical
       if you only have "landscape" stickers and want to print square labels
       by printing 2 labels per stickers and cutting the stickers in two
       afterwards.
-                 
+
+    encoding
+      The encoding of the item template file.
+
     **default_context
-      Use keywords to add ny variable, function, etc. that you are using in
+      Use keywords to add any variable, function, etc. that you are using in
       the templates.
     """
 
@@ -94,11 +97,17 @@ class LabelWriter:
         default_stylesheets=(),
         default_base_url=None,
         items_per_page=1,
+        encoding=None,
         **default_context
     ):
         if item_template_path is not None:
-            with open(item_template_path, "r") as f:
-                item_template = f.read()
+            if encoding is not None:
+                with open(item_template_path, "r", encoding=encoding) as f:
+                    item_template = f.read()
+            else:  # use locale.getpreferredencoding()
+                with open(item_template_path, "r") as f:
+                    item_template = f.read()
+
         if isinstance(item_template, str):
             item_template = jinja2.Template(item_template)
         self.default_context = default_context if default_context else {}
