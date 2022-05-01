@@ -8,16 +8,17 @@ from . import label_tools
 from . import tools
 
 THIS_PATH = os.path.dirname(os.path.realpath(__file__))
-with open(os.path.join(THIS_PATH, 'data', 'print_template.html'), 'r') as f:
+with open(os.path.join(THIS_PATH, "data", "print_template.html"), "r") as f:
     PRINT_TEMPLATE = jinja2.Template(f.read())
 
 GLOBALS = {
-    'list': list,
-    'len': len,
-    'enumerate': enumerate,
-    'label_tools': label_tools,
-    'str': str
+    "list": list,
+    "len": len,
+    "enumerate": enumerate,
+    "label_tools": label_tools,
+    "str": str,
 }
+
 
 def write_pdf(html, target=None, base_url=None, extra_stylesheets=()):
     """Write the provided HTML in a PDF file.
@@ -50,6 +51,7 @@ def write_pdf(html, target=None, base_url=None, extra_stylesheets=()):
         return pdf_data
     else:
         weasy_html.write_pdf(target, stylesheets=extra_stylesheets)
+
 
 class LabelWriter:
     """Class to write labels
@@ -86,11 +88,17 @@ class LabelWriter:
       the templates.
     """
 
-    def __init__(self, item_template_path=None, item_template=None,
-                 default_stylesheets=(), default_base_url=None,
-                 items_per_page=1, **default_context):
+    def __init__(
+        self,
+        item_template_path=None,
+        item_template=None,
+        default_stylesheets=(),
+        default_base_url=None,
+        items_per_page=1,
+        **default_context
+    ):
         if item_template_path is not None:
-            with open(item_template_path, 'r') as f:
+            with open(item_template_path, "r") as f:
                 item_template = f.read()
         if isinstance(item_template, str):
             item_template = jinja2.Template(item_template)
@@ -100,14 +108,13 @@ class LabelWriter:
         self.item_template = item_template
         self.items_per_page = items_per_page
 
-
     def record_to_html(self, record):
         """Convert one record to an html string using the item template."""
         context = dict(GLOBALS.items())
         context.update(self.default_context)
         context.update(record)
         return self.item_template.render(**context)
-    
+
     def records_to_html(self, records, target=None):
         """Build the full HTML document to be printed.
         
@@ -117,13 +124,12 @@ class LabelWriter:
         items_chunks = tools.list_chunks(items_htmls, self.items_per_page)
         html = PRINT_TEMPLATE.render(items_chunks=items_chunks)
         if target is not None:
-            with open(target, 'w') as f:
+            with open(target, "w") as f:
                 f.write(html)
         else:
             return html
 
-    def write_labels(self, records, target=None, extra_stylesheets=(),
-                     base_url=None):
+    def write_labels(self, records, target=None, extra_stylesheets=(), base_url=None):
         """Write the PDF document containing the labels to be printed.
         
         Parameters
