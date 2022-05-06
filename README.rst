@@ -1,8 +1,9 @@
 Blabel
 ======
 
-.. image:: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel.svg?branch=master
-    :target: https://app.travis-ci.com/Edinburgh-Genome-Foundry/blabel
+.. image:: https://github.com/Edinburgh-Genome-Foundry/blabel/actions/workflows/build.yml/badge.svg
+    :target: https://github.com/Edinburgh-Genome-Foundry/blabel/actions/workflows/build.yml
+    :alt: GitHub CI build status
 
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
     :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
