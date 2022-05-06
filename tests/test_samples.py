@@ -75,7 +75,7 @@ def test_logo_and_datamatrix():
     data = label_writer.write_labels(
         records, target=None, base_url=os.path.join(SAMPLES_DIR, "logo_and_datamatrix"),
     )
-    assert 27_000 > len(data) > 19_500
+    assert 55_000 > len(data) > 19_500
 
 
 def test_several_items_per_page():
