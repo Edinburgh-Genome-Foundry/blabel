@@ -139,7 +139,7 @@ Other examples
 
 
 Installation
--------------
+------------
 
 You can install Blabel via PIP:
 
@@ -147,14 +147,19 @@ You can install Blabel via PIP:
 
     pip install blabel
 
-Alternatively, you can unzip the sources in a folder and type
+Alternatively, you can unzip the sources in a folder and type:
 
 .. code::
 
     python setup.py install
 
 
-**Note:** the package depends on the WeasyPrint Python package. If there are any issues, see installation instructions in the `WeasyPrint documentation <https://doc.courtbouillon.org/weasyprint/stable/first_steps.html>`_. The version is `fixed to <=52 <https://github.com/Edinburgh-Genome-Foundry/pdf_reports/blob/master/setup.py>`_ as not all GNU/Linux distributions have the latest Pango that is required by the latest WeasyPrint.
+**Note:** the package depends on the WeasyPrint Python package. If there are any issues,
+see installation instructions in the `WeasyPrint documentation <https://doc.courtbouillon.org/weasyprint/stable/first_steps.html>`_.
+
+If you have an older GNU/Linux distribution (e.g. Ubuntu 18.04), then install an older WeasyPrint (<=52),
+as they don't have the latest Pango that is required by the latest WeasyPrint: ``pip install weasyprint==52``
+
 
 **Note: on macOS**, you may need to first install pango with ``brew install pango``.
 
