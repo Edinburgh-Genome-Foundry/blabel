@@ -23,6 +23,6 @@ setup(
         "pystrich",
         "python-barcode",
         "pillow",
-        "weasyprint<=52",
+        "weasyprint",
     ],
 )
