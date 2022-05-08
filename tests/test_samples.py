@@ -51,7 +51,7 @@ def test_barcode_and_dynamic_picture():
     ]
 
     data = label_writer.write_labels(records, target=None)
-    assert 40_000 > len(data) > 30_000
+    assert 40_000 > len(data) > 22_000
 
 
 def test_labels_from_spreadsheet():
@@ -93,4 +93,4 @@ def test_several_items_per_page():
         target=None,
         base_url=os.path.join(SAMPLES_DIR, "several_items_per_page"),
     )
-    assert 28_000 > len(data) > 18_000
+    assert 28_000 > len(data) > 15_000
