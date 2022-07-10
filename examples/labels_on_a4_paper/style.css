@@ -1,0 +1,95 @@
+@page {
+    width: 210mm;
+    height: 297mm;
+}
+
+.print-area {
+    border: 0.1mm solid black;  /* Comment to disable the box around the label */
+    height: 29.7mm;             /* Single label height on the A4 paper */
+    width: 52.3mm;              /* signle lable width on the A4 paper */
+    float:left;
+}
+.item {
+  margin-top:4mm;
+  margin-left:4mm;
+  margin-right:4mm;
+  margin-bottom:4mm;
+  text-align: center;
+}
+
+/*Styling bellow is used just for positioning the items inside the label. */
+
+.divbc 
+{
+  position: absolute;
+  top: 17mm;
+  left: 5mm;
+  right: 0;
+  width: 41mm;
+  height: 8mm;
+}
+.barcode {
+    height: 8mm;
+    width:40mm;
+    margin-left: 1mm;
+    display: inline-block;
+    vertical-align: middle;
+    image-rendering: pixelated;
+}
+
+.divheading 
+{
+  position: absolute;
+  top: 10mm;
+  left: 3mm;
+  right: 0;
+  width: 45mm;
+  height: 6mm;
+  padding:0mm;
+  vertical-align:middle;
+
+}
+.divheading .pheading
+{
+    margin:0mm;
+    vertical-align:middle;
+    font-size: 10pt;
+}
+
+.divsample
+{
+  position: absolute;
+  top: 4mm;
+  right: 5mm;
+  width: 20mm;
+  height: 6mm;
+  padding:0mm;
+}
+
+.divsample .psample
+{
+    margin:0mm;
+    vertical-align:middle;
+    text-align:right;
+    font-size: 8pt;
+
+}
+
+.divid
+{
+  position: absolute;
+  top: 25mm;
+  left:5mm;
+  width: 41mm;
+  height: 6mm;
+  padding:0mm;
+}
+
+.divid .pid
+{
+    margin:0mm;
+    vertical-align:middle;
+    text-align:center;
+    font-size: 8pt;
+
+}
