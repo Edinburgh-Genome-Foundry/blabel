@@ -6,7 +6,7 @@
 .print-area {
     border: 0.1mm solid black;  /* Comment to disable the box around the label */
     height: 29.7mm;             /* Single label height on the A4 paper */
-    width: 52.3mm;              /* signle lable width on the A4 paper */
+    width: 52.3mm;              /* Singlelable width on the A4 paper */
     float:left;
 }
 .item {
