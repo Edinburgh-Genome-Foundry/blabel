@@ -5,8 +5,8 @@
 
 .print-area {
     border: 0.1mm solid black;  /* Comment to disable the box around the label */
-    height: 29.7mm;             /* Single label height on the A4 paper */
-    width: 52.3mm;              /* Singlelable width on the A4 paper */
+    height: 29.7mm;               /* Single label height on the A4 paper */
+    width: 52.3mm;                /* Single label width on the A4 paper */
     float:left;
 }
 .item {
@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-/*Styling bellow is used just for positioning the items inside the label. */
+/*Styling below is used just for positioning the items inside the label. */
 
 .divbc 
 {
