@@ -58,7 +58,7 @@ def test_labels_from_spreadsheet():
     dataframe = pandas.read_csv(
         os.path.join(SAMPLES_DIR, "labels_from_spreadsheet", "records.csv")
     )
-    records = dataframe.to_dict(orient="record")
+    records = dataframe.to_dict(orient="records")
     template, style = get_template_and_style("labels_from_spreadsheet")
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
     data = label_writer.write_labels(records, target=None)
