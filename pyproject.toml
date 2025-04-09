@@ -1,6 +1,6 @@
 [project]
 name = "blabel"
-version = "0.1.5"
+version = "0.1.7"
 license = "MIT"
 authors = [{ name = "Zulko" }]
 description = "Generate multi-page, multi-label PDF files in Python."
