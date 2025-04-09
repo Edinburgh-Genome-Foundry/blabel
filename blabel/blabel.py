@@ -66,7 +66,7 @@ class LabelWriter:
 
     item_template
       jinja2.Template object to serve as a template for translating a dict
-      record into the HTML of one item.  
+      record into the HTML of one item.
 
     default_stylesheets
       List of ``weasyprint.CSS`` objects or path to ``.css`` spreadsheets
@@ -125,7 +125,7 @@ class LabelWriter:
 
     def records_to_html(self, records, target=None):
         """Build the full HTML document to be printed.
-        
+
         If ``target`` is None, the raw HTML string is returned, else the HTML
         is written at the path specified by ``target``."""
         items_htmls = [self.record_to_html(record) for record in records]
@@ -139,17 +139,17 @@ class LabelWriter:
 
     def write_labels(self, records, target=None, extra_stylesheets=(), base_url=None):
         """Write the PDF document containing the labels to be printed.
-        
+
         Parameters
         ----------
 
         records
           List of dictionaries with the parameters of each label to print.
-        
+
         target
           Path of the PDF file to be generated. If left to None or "@memory",
           the raw file data will be returned.
-        
+
         extra_stylesheets
           List of path to stylesheets of Weasyprint CSS objects to complement
           the default stylesheets.

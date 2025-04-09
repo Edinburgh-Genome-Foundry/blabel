@@ -1,5 +1,5 @@
-"""Utilities for label generation.
-"""
+"""Utilities for label generation."""
+
 import base64
 from io import BytesIO
 import datetime
@@ -25,7 +25,7 @@ def now(fmt="%Y-%m-%d %H:%M"):
 
 def pil_to_html_imgdata(img, fmt="PNG"):
     """Convert a PIL image into HTML-displayable data.
-    
+
     The result is a string ``data:image/FMT;base64,xxxxxxxxx`` which you
     can provide as a "src" parameter to a ``<img/>`` tag.
 
@@ -75,13 +75,13 @@ def qr_code(
     ----------
     data
       Data to be encoded in the QR code.
-    
+
     optimize
       Chunk length optimization setting.
-    
+
     fill_color, back_color
       Colors to use for QRcode and its background.
-    
+
     **qr_code_params
       Parameters of the ``qrcode.QRCode`` constructor, such as ``version``,
       ``error_correction``, ``box_size``, ``border``.
@@ -119,7 +119,7 @@ def datamatrix(data, cellsize=2, with_border=False):
 
     cellsize
       size of the picture in inches (?).
-    
+
     with_border
       If false, there will be no border or margin to the datamatrix image.
 
@@ -159,7 +159,7 @@ def barcode(
     barcode_class
       Class/standard to use to encode the data. Different standards have
       different constraints.
-    
+
     writer_options
       Various options for the writer to tune the appearance of the barcode
       (see python-barcode documentation).

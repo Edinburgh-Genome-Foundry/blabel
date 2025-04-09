@@ -25,4 +25,3 @@ class JupyterPDF(object):
         """.format(
             self=self
         )
-
