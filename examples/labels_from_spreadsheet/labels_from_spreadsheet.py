@@ -2,7 +2,7 @@ from blabel import LabelWriter
 import pandas
 
 dataframe = pandas.read_csv("records.csv")
-records = dataframe.to_dict(orient="record")
+records = dataframe.to_dict(orient="records")
 
 label_writer = LabelWriter("item_template.html", default_stylesheets=("style.css",))
 

@@ -148,7 +148,12 @@ You can install Blabel via PIP:
     pip install blabel
 
 
-**Note:** the package depends on the WeasyPrint Python package. If there are any issues, see installation instructions in the `WeasyPrint documentation <https://doc.courtbouillon.org/weasyprint/stable/first_steps.html>`_. The version is `fixed to <=52 <https://github.com/Edinburgh-Genome-Foundry/pdf_reports/blob/master/setup.py>`_ as not all GNU/Linux distributions have the latest Pango that is required by the latest WeasyPrint.
+**Note:** the package depends on the WeasyPrint Python package. If there are any issues,
+see installation instructions in the `WeasyPrint documentation <https://doc.courtbouillon.org/weasyprint/stable/first_steps.html>`_.
+
+If you have an older GNU/Linux distribution (e.g. Ubuntu 18.04), then install an older WeasyPrint (<=52),
+as they don't have the latest Pango that is required by the latest WeasyPrint: ``pip install weasyprint==52``
+
 
 **Note: on macOS**, you may need to first install pango with ``brew install pango``.
 
@@ -162,7 +167,7 @@ License = MIT
 Blabel is an open-source software originally written at the `Edinburgh Genome Foundry
 <https://edinburgh-genome-foundry.github.io/home.html>`_ by `Zulko <https://github.com/Zulko>`_
 and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence
-(Copyright 2018 Edinburgh Genome Foundry, , University of Edinburgh). Everyone is welcome to contribute!
+(Copyright 2018 Edinburgh Genome Foundry, University of Edinburgh). Everyone is welcome to contribute!
 
 
 More biology software
