@@ -107,7 +107,9 @@ def test_several_items_per_page(tmpdir):
         dict(name="Hille", sex="F"),
     ]
     template, style = get_template_and_style("several_items_per_page")
-    label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
+    label_writer = blabel.LabelWriter(
+        template, items_per_page=3, default_stylesheets=(style,)
+    )
     target = os.path.join(str(tmpdir), "several_items_per_page.pdf")
     label_writer.write_labels(
         records,
