@@ -1,0 +1,29 @@
+[project]
+name = "blabel"
+version = "0.1.5"
+license = "MIT"
+authors = [{ name = "Zulko" }]
+description = "Generate multi-page, multi-label PDF files in Python."
+readme = "pypi-readme.rst"
+keywords = ["label", "barcode", "pdf", "generator"]
+dependencies = [
+  "jinja2",
+  "qrcode",
+  "pystrich",
+  "python-barcode",
+  "pillow",
+  "weasyprint",
+]
+
+[project.urls]
+Homepage = "https://github.com/Edinburgh-Genome-Foundry/blabel"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["docs"]

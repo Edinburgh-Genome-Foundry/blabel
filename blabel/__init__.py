@@ -4,3 +4,4 @@
 
 from .blabel import LabelWriter
 from .tools import JupyterPDF
+from .version import __version__
