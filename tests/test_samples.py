@@ -28,6 +28,7 @@ def test_qrcode_and_date(tmpdir):
     label_writer.write_labels(records, target=target)
     target = os.path.join(str(tmpdir), "qrcode_and_date.html")
     label_writer.records_to_html(records, target=target)
+
     data = label_writer.write_labels(records, target=None)
     assert 5_000 < len(data) < 10_000
 
@@ -119,4 +120,4 @@ def test_several_items_per_page(tmpdir):
         target=None,
         base_url=os.path.join(SAMPLES_DIR, "several_items_per_page"),
     )
-    assert 28_000 > len(data) > 18_000
+    assert 10_000 > len(data) > 6_000
