@@ -53,7 +53,9 @@ def test_barcode_and_dynamic_picture(tmpdir):
     ]
 
     target = os.path.join(str(tmpdir), "barcode_and_dynamic_picture.pdf")
-    data = label_writer.write_labels(records, target=target)
+    label_writer.write_labels(records, target=target)
+
+    data = label_writer.write_labels(records, target=None)
     assert 30_000 > len(data) > 20_000
 
 
@@ -83,7 +85,7 @@ def test_logo_and_datamatrix():
     assert 55_000 > len(data) > 19_500
 
 
-def test_several_items_per_page():
+def test_several_items_per_page(tmpdir):
     records = [
         dict(name="Scott", sex="M"),
         dict(name="Laura", sex="F"),
@@ -93,6 +95,13 @@ def test_several_items_per_page():
     ]
     template, style = get_template_and_style("several_items_per_page")
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
+    target = os.path.join(str(tmpdir), "several_items_per_page.pdf")
+    label_writer.write_labels(
+        records,
+        target=target,
+        base_url=os.path.join(SAMPLES_DIR, "several_items_per_page"),
+    )
+
     data = label_writer.write_labels(
         records,
         target=None,
