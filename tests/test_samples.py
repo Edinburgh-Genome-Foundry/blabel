@@ -70,13 +70,21 @@ def test_labels_from_spreadsheet():
     assert 18_000 > len(data) > 11_000
 
 
-def test_logo_and_datamatrix():
+def test_logo_and_datamatrix(tmpdir):
     records = [
         dict(sample_id="s01", sample_name="Sample 1"),
         dict(sample_id="s02", sample_name="Sample 2"),
     ]
     template, style = get_template_and_style("logo_and_datamatrix")
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
+
+    target = os.path.join(str(tmpdir), "logo_and_datamatrix.pdf")
+    label_writer.write_labels(
+        records,
+        target=target,
+        base_url=os.path.join(SAMPLES_DIR, "logo_and_datamatrix"),
+    )
+
     data = label_writer.write_labels(
         records,
         target=None,
