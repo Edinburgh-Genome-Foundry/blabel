@@ -1,0 +1,23 @@
+name: documentation
+
+on: 
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  document:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - id: deployment
+      uses: sphinx-notes/pages@v3
+      with:
+        python_version: 3.12
+        documentation_path: ./docs
+        requirements_path: ./docs/requirements.txt

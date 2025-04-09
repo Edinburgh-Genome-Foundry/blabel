@@ -29,8 +29,8 @@ def pil_to_html_imgdata(img, fmt="PNG"):
     The result is a string ``data:image/FMT;base64,xxxxxxxxx`` which you
     can provide as a "src" parameter to a ``<img/>`` tag.
 
-    Examples:
-    ---------
+    Examples
+    --------
 
     >>> data = pil_to_html_imgdata(my_pil_img)
     >>> html_data = '<img src="%s"/>' % data
@@ -92,8 +92,8 @@ def qr_code(
       A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
       "src" parameter to a ``<img/>`` tag.
 
-    Examples:
-    ---------
+    Examples
+    --------
 
     >>> data = qr_code('egf45728')
     >>> html_data = '<img src="%s"/>' % data
@@ -129,8 +129,8 @@ def datamatrix(data, cellsize=2, with_border=False):
       A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
       "src" parameter to a ``<img/>`` tag.
 
-    Examples:
-    ---------
+    Examples
+    --------
 
     >>> data = datamatrix('EGF')
     >>> html_data = '<img src="%s"/>' % data
@@ -170,8 +170,8 @@ def barcode(
       A string ``data:image/png;base64,xxxxxxxxx`` which you can provide as a
       "src" parameter to a ``<img/>`` tag.
 
-    Examples:
-    ---------
+    Examples
+    --------
 
     >>> data = barcode('EGF12134', barcode_class='code128')
     >>> html_data = '<img src="%s"/>' % data

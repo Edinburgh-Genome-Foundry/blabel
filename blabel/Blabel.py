@@ -57,7 +57,6 @@ class LabelWriter:
 
     Parameters
     ----------
-
     item_template_path
       Path to an HTML/jinja2 html template file that will serve as template
       for translating a dict record into the HTML of one item.
@@ -142,7 +141,6 @@ class LabelWriter:
 
         Parameters
         ----------
-
         records
           List of dictionaries with the parameters of each label to print.
 

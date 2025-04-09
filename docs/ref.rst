@@ -1,17 +1,17 @@
 .. _reference:
 
-Blabel Reference manual
-============================
+Blabel reference manual
+=======================
 
 LabelWriter
-~~~~~~~~~~~~~~
+~~~~~~~~~~~
 
 .. autoclass:: blabel.LabelWriter
    :members:
 
 
 Tools
-~~~~~~
+~~~~~
 
 .. automodule:: blabel.label_tools
    :members:
