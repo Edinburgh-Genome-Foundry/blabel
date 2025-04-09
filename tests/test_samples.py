@@ -59,13 +59,17 @@ def test_barcode_and_dynamic_picture(tmpdir):
     assert 30_000 > len(data) > 20_000
 
 
-def test_labels_from_spreadsheet():
+def test_labels_from_spreadsheet(tmpdir):
     dataframe = pandas.read_csv(
         os.path.join(SAMPLES_DIR, "labels_from_spreadsheet", "records.csv")
     )
     records = dataframe.to_dict(orient="record")
     template, style = get_template_and_style("labels_from_spreadsheet")
     label_writer = blabel.LabelWriter(template, default_stylesheets=(style,))
+
+    target = os.path.join(str(tmpdir), "labels_from_spreadsheet.pdf")
+    data = label_writer.write_labels(records, target=target)
+
     data = label_writer.write_labels(records, target=None)
     assert 18_000 > len(data) > 11_000
 
