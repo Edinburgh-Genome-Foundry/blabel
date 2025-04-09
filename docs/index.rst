@@ -34,6 +34,6 @@
    ref
 
 
-.. _Github: https://github.com/EdinburghGenomeFoundry/dnachisel
-.. _PYPI: https://pypi.python.org/pypi/dnachisel
+.. _Github: https://github.com/EdinburghGenomeFoundry/blabel
+.. _PYPI: https://pypi.python.org/pypi/blabel
 

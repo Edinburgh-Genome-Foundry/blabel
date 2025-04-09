@@ -1,5 +1,11 @@
-Blabel
-======
+.. raw:: html
+
+    <p align="center">
+    <img alt="Blabel Logo" title="Blabel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
+    <br /><br />
+    </p>
+
+----
 
 .. image:: https://github.com/Edinburgh-Genome-Foundry/blabel/actions/workflows/build.yml/badge.svg
     :target: https://github.com/Edinburgh-Genome-Foundry/blabel/actions/workflows/build.yml
@@ -8,12 +14,6 @@ Blabel
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/blabel/badge.svg?branch=master
     :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/blabel?branch=master
 
-.. raw:: html
-
-    <p align="center">
-    <img alt="Blabel Logo" title="Blabel" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/blabel/master/docs/_static/images/title.png" width="400">
-    <br /><br />
-    </p>
 
 Blabel is a Python package to generate labels (typically for printing stickers)
 with barcodes and other niceties.
@@ -139,19 +139,13 @@ Other examples
 
 
 Installation
--------------
+------------
 
 You can install Blabel via PIP:
 
 .. code::
 
     pip install blabel
-
-Alternatively, you can unzip the sources in a folder and type
-
-.. code::
-
-    python setup.py install
 
 
 **Note:** the package depends on the WeasyPrint Python package. If there are any issues, see installation instructions in the `WeasyPrint documentation <https://doc.courtbouillon.org/weasyprint/stable/first_steps.html>`_. The version is `fixed to <=52 <https://github.com/Edinburgh-Genome-Foundry/pdf_reports/blob/master/setup.py>`_ as not all GNU/Linux distributions have the latest Pango that is required by the latest WeasyPrint.
@@ -165,9 +159,10 @@ The package name may be libffi-devel on some systems.
 License = MIT
 -------------
 
-DnaChisel is an open-source software originally written at the `Edinburgh Genome Foundry
+Blabel is an open-source software originally written at the `Edinburgh Genome Foundry
 <https://edinburgh-genome-foundry.github.io/home.html>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence (Copyright 2018 Edinburgh Genome Foundry). Everyone is welcome to contribute!
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/blabel>`_ under the MIT licence
+(Copyright 2018 Edinburgh Genome Foundry, , University of Edinburgh). Everyone is welcome to contribute!
 
 
 More biology software

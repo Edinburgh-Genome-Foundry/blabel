@@ -32,16 +32,13 @@ Infos
 
   pip install blabel
 
-**Github Page**
+**Github Page:** `<https://github.com/Edinburgh-Genome-Foundry/blabel>`_
 
-`<https://github.com/Edinburgh-Genome-Foundry/blabel>`_
+**Documentation:** `<https://edinburgh-genome-foundry.github.io/blabel>`_
 
-**Documentation:**
+**License:** MIT
 
-`<https://edinburgh-genome-foundry.github.io/blabel>`_
-
-
-**License:** MIT, Copyright Edinburgh Genome Foundry
+Copyright 2018 Edinburgh Genome Foundry, University of Edinburgh
 
 
 More biology software
