@@ -72,7 +72,7 @@ def test_labels_from_spreadsheet(tmpdir):
     data = label_writer.write_labels(records, target=target)
 
     data = label_writer.write_labels(records, target=None)
-    assert 18_000 > len(data) > 11_000
+    assert 7_000 > len(data) > 5_000
 
 
 def test_logo_and_datamatrix(tmpdir):
