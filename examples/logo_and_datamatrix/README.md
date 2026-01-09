@@ -6,5 +6,5 @@ In this particularly ugly example we will print a label with a datamatrix code i
 
 This example shows:
 
-- How to use local pictures (notice that it requires to set the ``base_url`` in ``write_pdf``).
+- How to use local pictures (notice that it requires to set the ``base_url`` in ``write_labels``).
 - How to use ``label_tools.datamatrix()``
